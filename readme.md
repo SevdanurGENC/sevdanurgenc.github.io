@@ -1,2 +1,2 @@
-## sevdanurhenc.github.io
+## sevdanurgenc.github.io
 # Personal website
