@@ -3,4 +3,4 @@
 
 This repo contains the codes of  my github website.
 
-![img](https://github.com/SevdanurGENC/sevdanurgenc.github.io/blob/master/nano.png)
+![image](https://github.com/user-attachments/assets/2739bf84-29fa-468d-ae17-91e90c9b476e)
