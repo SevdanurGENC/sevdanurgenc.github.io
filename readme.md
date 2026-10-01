@@ -3,4 +3,5 @@
 
 This repo contains the codes of  my github website.
 
-![image](https://github.com/user-attachments/assets/2739bf84-29fa-468d-ae17-91e90c9b476e)
+<img width="2739" height="1581" alt="image" src="https://github.com/user-attachments/assets/a35c7203-d974-46de-9d01-cf63bc2d328d" />
+
