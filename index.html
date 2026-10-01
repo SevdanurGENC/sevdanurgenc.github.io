@@ -3,10 +3,26 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Dr. Öğr. Üyesi Sevdanur GENÇ - Balıkesir Üniversitesi Mühendislik Fakültesi Bilgisayar Mühendisliği Bölümü. Yapay zekâ, makine öğrenmesi ve kuantum hesaplama." />
+        <meta name="description" content="Dr. Öğr. Üyesi Sevdanur GENÇ - Balıkesir Üniversitesi Bilgisayar Mühendisliği. Yapay zekâ, makine öğrenmesi ve kuantum hesaplama. / Asst. Prof. Sevdanur GENÇ - Balıkesir University, Computer Engineering." />
         <meta name="author" content="Sevdanur GENÇ" />
         <title>Sevdanur GENÇ</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <link rel="alternate" hreflang="tr" href="https://sevdanurgenc.github.io/?lang=tr" />
+        <link rel="alternate" hreflang="en" href="https://sevdanurgenc.github.io/?lang=en" />
+        <script>
+            // Dil seçimi / Language selection: ?lang=tr|en > kayıtlı tercih / saved choice > tarayıcı dili / browser language
+            (function () {
+                var lang = null;
+                try { lang = new URLSearchParams(location.search).get("lang"); } catch (e) {}
+                if (lang !== "tr" && lang !== "en") {
+                    try { lang = localStorage.getItem("site-lang"); } catch (e) { lang = null; }
+                }
+                if (lang !== "tr" && lang !== "en") {
+                    lang = (navigator.language || "tr").toLowerCase().indexOf("tr") === 0 ? "tr" : "en";
+                }
+                document.documentElement.lang = lang;
+            })();
+        </script>
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -15,35 +31,49 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
+            html[lang="en"] .l-tr { display: none !important; }
+            html:not([lang="en"]) .l-en { display: none !important; }
             .pub-list li { margin-bottom: 0.9rem; }
             .pub-type { font-size: 0.8rem; color: #868e96; }
+            .link-icon { color: #CC0000; }
             .course-year { margin-bottom: 1rem; }
-            .course-year summary { cursor: pointer; font-weight: 700; color: #bd5d38; }
-            .course-year ul { margin-top: 0.5rem; }
+            .course-year summary { cursor: pointer; font-weight: 700; color: #CC0000; }
+            .course-year p:first-of-type { margin-top: 0.5rem; }
             .meta { color: #6c757d; }
             .status-ongoing { font-size: 0.8rem; color: #28a745; font-weight: 700; }
+            .lang-switch { position: fixed; top: 1rem; right: 1rem; z-index: 1040; display: flex; border: 2px solid #CC0000; border-radius: 2rem; overflow: hidden; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.15); }
+            .lang-switch button { border: 0; background: transparent; padding: 0.3rem 0.8rem; font-weight: 800; font-size: 0.85rem; color: #CC0000; cursor: pointer; }
+            .lang-switch button[aria-pressed="true"] { background: #CC0000; color: #fff; }
+            .subheading a { overflow-wrap: anywhere; }
+            @media (max-width: 575.98px) { #about h1 { font-size: 3rem; line-height: 1.1; } .resume-section h2 { font-size: 2.2rem; overflow-wrap: anywhere; } }
+            @media (max-width: 991.98px) { .lang-switch { top: 0.6rem; right: 4.5rem; } }
         </style>
     </head>
     <body id="page-top">
+        <!-- Dil seçici / Language switcher -->
+        <div class="lang-switch" role="group" aria-label="Dil / Language">
+            <button type="button" data-lang="tr" title="Türkçe">TR</button>
+            <button type="button" data-lang="en" title="English">EN</button>
+        </div>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
                 <span class="d-block d-lg-none">Sevdanur GENÇ</span>
                 <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="Sevdanur GENÇ" /></span>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Menüyü aç/kapat"><span class="navbar-toggler-icon"></span></button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Menu"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Hakkımda</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Öğrenim</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Görevler</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#articles">Yayınlar</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#books">Kitaplar</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projeler</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#talks">Söyleşiler</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#theses">Tezler</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#courses">Dersler</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#editorship">Editörlük</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about"><span class="l-tr">Hakkımda</span><span class="l-en" lang="en">About</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education"><span class="l-tr">Öğrenim</span><span class="l-en" lang="en">Education</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience"><span class="l-tr">Görevler</span><span class="l-en" lang="en">Experience</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#publications"><span class="l-tr">Yayınlar</span><span class="l-en" lang="en">Publications</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#books"><span class="l-tr">Kitaplar</span><span class="l-en" lang="en">Books</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects"><span class="l-tr">Projeler</span><span class="l-en" lang="en">Projects</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#talks"><span class="l-tr">Söyleşiler</span><span class="l-en" lang="en">Talks</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#theses"><span class="l-tr">Tezler</span><span class="l-en" lang="en">Theses</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#courses"><span class="l-tr">Dersler</span><span class="l-en" lang="en">Courses</span></a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#editorship"><span class="l-tr">Editörlük</span><span class="l-en" lang="en">Editorship</span></a></li>
                 </ul>
             </div>
         </nav>
@@ -58,20 +88,16 @@
                         <span class="text-primary">GENÇ</span>
                     </h1>
                     <div class="subheading mb-5">
-                        Dr. Öğr. Üyesi · Balıkesir Üniversitesi · Mühendislik Fakültesi · Bilgisayar Mühendisliği Bölümü ·
+                        <span class="l-tr">Dr. Öğr. Üyesi · Balıkesir Üniversitesi · Mühendislik Fakültesi · Bilgisayar Mühendisliği Bölümü</span><span class="l-en" lang="en">Asst. Prof. · Balıkesir University · Faculty of Engineering · Department of Computer Engineering</span> ·
                         <a href="mailto:sevdanur.genc@balikesir.edu.tr">sevdanur.genc@balikesir.edu.tr</a>
                     </div>
-                    <p class="lead mb-4">
-                        Balıkesir Üniversitesi Mühendislik Fakültesi Bilgisayar Mühendisliği Bölümü, Bilgisayar Bilimleri Anabilim Dalı'nda Doktor Öğretim Üyesi ve Bölüm Başkan Yardımcısıyım.
-                        Doktoramı Süleyman Demirel Üniversitesi Bilgisayar Mühendisliği'nde, yüksek lisansımı Yalova Üniversitesi Bilgisayar Mühendisliği'nde tamamladım.
-                    </p>
-                    <p class="lead mb-5">
-                        Çalışmalarım yapay zekâ, makine öğrenmesi, kuantum hesaplama ve kuantum makine öğrenmesi, yazılım test otomasyonu ve sağlıkta yapay zekâ uygulamaları üzerine yoğunlaşmaktadır.
-                    </p>
+                    <p class="lead mb-4"><span class="l-tr">Balıkesir Üniversitesi Mühendislik Fakültesi Bilgisayar Mühendisliği Bölümü, Bilgisayar Bilimleri Anabilim Dalı'nda Doktor Öğretim Üyesi ve Bölüm Başkan Yardımcısıyım. Doktoramı Süleyman Demirel Üniversitesi Bilgisayar Mühendisliği'nde, yüksek lisansımı Yalova Üniversitesi Bilgisayar Mühendisliği'nde tamamladım.</span><span class="l-en" lang="en">I am an Assistant Professor and Deputy Head of the Department of Computer Engineering (Division of Computer Science) at Balıkesir University, Faculty of Engineering. I received my Ph.D. in Computer Engineering from Süleyman Demirel University and my M.Sc. in Computer Engineering from Yalova University.</span></p>
+                    <p class="lead mb-5"><span class="l-tr">Çalışmalarım yapay zekâ, makine öğrenmesi, kuantum hesaplama ve kuantum makine öğrenmesi, yazılım test otomasyonu ve sağlıkta yapay zekâ uygulamaları üzerine yoğunlaşmaktadır.</span><span class="l-en" lang="en">My research focuses on artificial intelligence, machine learning, quantum computing and quantum machine learning, software test automation, and AI applications in healthcare.</span></p>
                     <div class="social-icons">
                         <a class="social-icon" href="https://akademik.yok.gov.tr/AkademikArama/AkademisyenGorevOgrenimBilgileri?islem=direct&amp;authorId=8FB451CAC8E1CEAE" title="YÖK Akademik"><i class="fas fa-graduation-cap"></i></a>
-                        <a class="social-icon" href="https://scholar.google.com.tr/citations?hl=tr&amp;user=wvZSrfsAAAAJ" title="Google Akademik"><i class="fab fa-google"></i></a>
+                        <a class="social-icon" href="https://scholar.google.com.tr/citations?hl=tr&amp;user=wvZSrfsAAAAJ" title="Google Scholar"><i class="fab fa-google"></i></a>
                         <a class="social-icon" href="https://www.researchgate.net/profile/Sevdanur-Genc" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                        <a class="social-icon" href="https://dergipark.org.tr/tr/pub/@sevdanurgenc" title="DergiPark"><i class="fas fa-book-reader"></i></a>
                         <a class="social-icon" href="https://www.linkedin.com/in/sevdanurgenc/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a class="social-icon" href="https://github.com/SevdanurGENC" title="GitHub"><i class="fab fa-github"></i></a>
                         <a class="social-icon" href="https://twitter.com/sevdanurgenc" title="Twitter"><i class="fab fa-twitter"></i></a>
@@ -86,50 +112,48 @@
             <!-- Education-->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Öğrenim Bilgileri</h2>
+                    <h2 class="mb-5"><span class="l-tr">Öğrenim Bilgileri</span><span class="l-en" lang="en">Education</span></h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Süleyman Demirel Üniversitesi</h3>
-                            <div class="subheading mb-3">Doktora · Bilgisayar Mühendisliği</div>
-                            <div>Fen Bilimleri Enstitüsü</div>
-                            <p><strong>Tez:</strong> Gerçek zamanlı veri toplayarak otomatik birim test oluşturma yazılımı (2022)<br />
-                            <strong>Danışman:</strong> Ecir Uğur Küçüksille</p>
+                            <h3 class="mb-0"><span class="l-tr">Süleyman Demirel Üniversitesi</span><span class="l-en" lang="en">Süleyman Demirel University</span></h3>
+                            <div class="subheading mb-3"><span class="l-tr">Doktora · Bilgisayar Mühendisliği</span><span class="l-en" lang="en">Ph.D. · Computer Engineering</span></div>
+                            <div><span class="l-tr">Fen Bilimleri Enstitüsü</span><span class="l-en" lang="en">Graduate School of Natural and Applied Sciences</span></div>
+                            <p><span class="l-tr"><strong>Tez:</strong> Gerçek zamanlı veri toplayarak otomatik birim test oluşturma yazılımı (2022)<br /><strong>Danışman:</strong> Ecir Uğur Küçüksille</span><span class="l-en" lang="en"><strong>Dissertation:</strong> Automatic unit test generation software by collecting real-time data (2022)<br /><strong>Advisor:</strong> Ecir Uğur Küçüksille</span></p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2018 - Ocak 2022</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary"><span class="l-tr">2018 - Ocak 2022</span><span class="l-en" lang="en">2018 - January 2022</span></span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Yalova Üniversitesi</h3>
-                            <div class="subheading mb-3">Yüksek Lisans (Tezli) · Bilgisayar Mühendisliği</div>
-                            <div>Fen Bilimleri Enstitüsü</div>
-                            <p><strong>Tez:</strong> Proteinlerdeki düzensiz bölgelerin tespiti için kaotik ve fizikokimyasal özellikler tabanlı yeni öznitelik kodlama yöntemleri geliştirilmesi (2015)<br />
-                            <strong>Danışman:</strong> Murat Gök</p>
+                            <h3 class="mb-0"><span class="l-tr">Yalova Üniversitesi</span><span class="l-en" lang="en">Yalova University</span></h3>
+                            <div class="subheading mb-3"><span class="l-tr">Yüksek Lisans (Tezli) · Bilgisayar Mühendisliği</span><span class="l-en" lang="en">M.Sc. (Thesis) · Computer Engineering</span></div>
+                            <div><span class="l-tr">Fen Bilimleri Enstitüsü</span><span class="l-en" lang="en">Graduate School of Natural and Applied Sciences</span></div>
+                            <p><span class="l-tr"><strong>Tez:</strong> Proteinlerdeki düzensiz bölgelerin tespiti için kaotik ve fizikokimyasal özellikler tabanlı yeni öznitelik kodlama yöntemleri geliştirilmesi (2015)<br /><strong>Danışman:</strong> Murat Gök</span><span class="l-en" lang="en"><strong>Thesis:</strong> Development of new feature encoding methods based on chaotic and physicochemical properties for the detection of disordered regions in proteins (2015)<br /><strong>Advisor:</strong> Murat Gök</span></p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2013 - Haziran 2015</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary"><span class="l-tr">2013 - Haziran 2015</span><span class="l-en" lang="en">2013 - June 2015</span></span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Süleyman Demirel Üniversitesi</h3>
-                            <div class="subheading mb-3">Lisans · Bilgisayar Mühendisliği</div>
-                            <div>Mühendislik Fakültesi, Bilgisayar Mühendisliği Programı (İÖ)</div>
+                            <h3 class="mb-0"><span class="l-tr">Süleyman Demirel Üniversitesi</span><span class="l-en" lang="en">Süleyman Demirel University</span></h3>
+                            <div class="subheading mb-3"><span class="l-tr">Lisans · Bilgisayar Mühendisliği</span><span class="l-en" lang="en">B.Sc. · Computer Engineering</span></div>
+                            <div><span class="l-tr">Mühendislik Fakültesi, Bilgisayar Mühendisliği Programı (İÖ)</span><span class="l-en" lang="en">Faculty of Engineering, Computer Engineering Program (Evening Education)</span></div>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2010 - Temmuz 2013</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary"><span class="l-tr">2010 - Temmuz 2013</span><span class="l-en" lang="en">2010 - July 2013</span></span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Anadolu Üniversitesi</h3>
-                            <div class="subheading mb-3">Lisans · İşletme</div>
-                            <div>İşletme Fakültesi, İşletme Programı (Açıköğretim)</div>
+                            <h3 class="mb-0"><span class="l-tr">Anadolu Üniversitesi</span><span class="l-en" lang="en">Anadolu University</span></h3>
+                            <div class="subheading mb-3"><span class="l-tr">Lisans · İşletme</span><span class="l-en" lang="en">B.A. · Business Administration</span></div>
+                            <div><span class="l-tr">İşletme Fakültesi, İşletme Programı (Açıköğretim)</span><span class="l-en" lang="en">Faculty of Business Administration (Open Education)</span></div>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2006 - Mayıs 2010</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary"><span class="l-tr">2006 - Mayıs 2010</span><span class="l-en" lang="en">2006 - May 2010</span></span></div>
                     </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <div class="d-flex flex-column flex-md-row justify-content-between ">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Süleyman Demirel Üniversitesi</h3>
-                            <div class="subheading mb-3">Önlisans · Bilgisayar Programcılığı</div>
-                            <div>Uluborlu Selahattin Karasoy Meslek Yüksekokulu, Bilgisayar Teknolojileri Bölümü (İÖ)</div>
+                            <h3 class="mb-0"><span class="l-tr">Süleyman Demirel Üniversitesi</span><span class="l-en" lang="en">Süleyman Demirel University</span></h3>
+                            <div class="subheading mb-3"><span class="l-tr">Önlisans · Bilgisayar Programcılığı</span><span class="l-en" lang="en">Associate Degree · Computer Programming</span></div>
+                            <div><span class="l-tr">Uluborlu Selahattin Karasoy Meslek Yüksekokulu, Bilgisayar Teknolojileri Bölümü (İÖ)</span><span class="l-en" lang="en">Uluborlu Selahattin Karasoy Vocational School, Department of Computer Technologies (Evening Education)</span></div>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2001 - Eylül 2006</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary"><span class="l-tr">2001 - Eylül 2006</span><span class="l-en" lang="en">2001 - September 2006</span></span></div>
                     </div>
                 </div>
             </section>
@@ -138,182 +162,127 @@
             <!-- Experience-->
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Görevler ve Deneyim</h2>
-
-                    <div class="subheading mb-3">Akademik Görevler</div>
+                    <h2 class="mb-5"><span class="l-tr">Görevler ve Deneyim</span><span class="l-en" lang="en">Positions and Experience</span></h2>
+                    <div class="subheading mb-3"><span class="l-tr">Akademik Görevler</span><span class="l-en" lang="en">Academic Positions</span></div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Doktor Öğretim Üyesi</h3>
-                            <p>Balıkesir Üniversitesi · Mühendislik Fakültesi · Bilgisayar Mühendisliği Bölümü · Bilgisayar Bilimleri Anabilim Dalı</p>
+                            <h3 class="mb-0"><span class="l-tr">Doktor Öğretim Üyesi</span><span class="l-en" lang="en">Assistant Professor</span></h3>
+                            <p><span class="l-tr">Balıkesir Üniversitesi · Mühendislik Fakültesi · Bilgisayar Mühendisliği Bölümü · Bilgisayar Bilimleri Anabilim Dalı</span><span class="l-en" lang="en">Balıkesir University · Faculty of Engineering · Department of Computer Engineering · Division of Computer Science</span></p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Ağustos 2024 - Günümüz</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary"><span class="l-tr">Ağustos 2024 - Günümüz</span><span class="l-en" lang="en">August 2024 - Present</span></span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Doktor Öğretim Üyesi</h3>
-                            <p>Kastamonu Üniversitesi · Taşköprü Meslek Yüksekokulu · Bilgisayar Teknolojileri Bölümü</p>
+                            <h3 class="mb-0"><span class="l-tr">Doktor Öğretim Üyesi</span><span class="l-en" lang="en">Assistant Professor</span></h3>
+                            <p><span class="l-tr">Kastamonu Üniversitesi · Taşköprü Meslek Yüksekokulu · Bilgisayar Teknolojileri Bölümü</span><span class="l-en" lang="en">Kastamonu University · Taşköprü Vocational School · Department of Computer Technologies</span></p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Ocak 2023 - Temmuz 2024</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary"><span class="l-tr">Ocak 2023 - Temmuz 2024</span><span class="l-en" lang="en">January 2023 - July 2024</span></span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Öğretim Görevlisi</h3>
-                            <p>Kastamonu Üniversitesi · Taşköprü Meslek Yüksekokulu · Bilgisayar Teknolojileri Bölümü · Bilgisayar Programcılığı Programı</p>
+                            <h3 class="mb-0"><span class="l-tr">Öğretim Görevlisi</span><span class="l-en" lang="en">Lecturer</span></h3>
+                            <p><span class="l-tr">Kastamonu Üniversitesi · Taşköprü Meslek Yüksekokulu · Bilgisayar Teknolojileri Bölümü · Bilgisayar Programcılığı Programı</span><span class="l-en" lang="en">Kastamonu University · Taşköprü Vocational School · Department of Computer Technologies · Computer Programming Program</span></p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Mart 2017 - Nisan 2023</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary"><span class="l-tr">Mart 2017 - Nisan 2023</span><span class="l-en" lang="en">March 2017 - April 2023</span></span></div>
                     </div>
-
-                    <div class="subheading mb-3">İdari Görevler</div>
+                    <div class="subheading mb-3"><span class="l-tr">İdari Görevler</span><span class="l-en" lang="en">Administrative Duties</span></div>
                     <ul class="fa-ul mb-5">
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Bölüm Başkan Yardımcısı</strong> · Balıkesir Üniv. Mühendislik Fak. Bilgisayar Mühendisliği Bölümü <span class="meta">(25.09.2024 - )</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Kalite Komisyonu Üyesi</strong> · Balıkesir Üniv. Mühendislik Fak. Bilgisayar Mühendisliği Bölümü <span class="meta">(01.09.2024 - )</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>MÜDEK Komisyonu Üyesi</strong> · Balıkesir Üniv. Mühendislik Fak. Bilgisayar Mühendisliği Bölümü <span class="meta">(01.09.2024 - )</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Bölüm Başkanı</strong> · Kastamonu Üniv. Taşköprü MYO Bilgisayar Teknolojileri Bölümü <span class="meta">(14.04.2023 - 30.07.2024)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Birim Kalite Temsilcisi</strong> · Kastamonu Üniv. Taşköprü MYO <span class="meta">(20.12.2023 - 30.07.2024)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Kantin ve Yemekhane Denetleme Komisyonu Üyesi</strong> · Kastamonu Üniv. Taşköprü MYO <span class="meta">(03.10.2022 - 30.07.2024)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Evrak İmha Komisyonu Üyesi</strong> · Kastamonu Üniv. Taşköprü MYO <span class="meta">(03.10.2022 - 30.07.2024; 14.05.2018 - 05.11.2019)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Birim Kalite Üst Komisyonu Kalite Güvence Grubu Üyesi</strong> · Kastamonu Üniv. Taşköprü MYO <span class="meta">(08.02.2022 - 30.07.2024)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Akreditasyon Komisyonu Üyesi</strong> · Kastamonu Üniv. Taşköprü MYO <span class="meta">(26.11.2021 - 30.07.2024)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Birim Kalite Üst Komisyonu Yönetim Sistemi Alt Çalışma Grubu Üyesi</strong> · Kastamonu Üniv. Taşköprü MYO <span class="meta">(08.01.2020 - 30.07.2024)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Staj Komisyonu Üyesi</strong> · Kastamonu Üniv. Taşköprü MYO <span class="meta">(03.01.2022 - 01.05.2023)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Kayıt Dondurma ve Tek Ders Ekleme Komisyonu Üyesi</strong> · Kastamonu Üniv. Taşköprü MYO <span class="meta">(22.10.2021 - 02.10.2022)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Sayım Komisyonu Üyesi</strong> · Kastamonu Üniv. Taşköprü MYO <span class="meta">(14.06.2021 - 31.12.2021)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Yönetim Kurulu Üyesi</strong> · Kastamonu Üniv. Taşköprü MYO <span class="meta">(07.08.2018 - 07.08.2021)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Yüksekokul Kurul Üyesi</strong> · Kastamonu Üniv. Taşköprü MYO <span class="meta">(07.08.2018 - 07.08.2021)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Bölüm Başkanı Vekili</strong> · Kastamonu Üniv. Taşköprü MYO Bilgisayar Teknolojileri Bölümü <span class="meta">(13.02.2018 - 02.07.2018)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Bölüm Başkan Yardımcısı</span><span class="l-en" lang="en">Deputy Head of Department</span></strong> · <span class="l-tr">Balıkesir Üniv. Mühendislik Fak. Bilgisayar Mühendisliği Bölümü</span><span class="l-en" lang="en">Balıkesir Univ. Faculty of Engineering, Dept. of Computer Engineering</span> <span class="meta">(25.09.2024 - )</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Kalite Komisyonu Üyesi</span><span class="l-en" lang="en">Member, Quality Commission</span></strong> · <span class="l-tr">Balıkesir Üniv. Mühendislik Fak. Bilgisayar Mühendisliği Bölümü</span><span class="l-en" lang="en">Balıkesir Univ. Faculty of Engineering, Dept. of Computer Engineering</span> <span class="meta">(01.09.2024 - )</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">MÜDEK Komisyonu Üyesi</span><span class="l-en" lang="en">Member, MÜDEK Accreditation Commission</span></strong> · <span class="l-tr">Balıkesir Üniv. Mühendislik Fak. Bilgisayar Mühendisliği Bölümü</span><span class="l-en" lang="en">Balıkesir Univ. Faculty of Engineering, Dept. of Computer Engineering</span> <span class="meta">(01.09.2024 - )</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Bölüm Başkanı</span><span class="l-en" lang="en">Head of Department</span></strong> · <span class="l-tr">Kastamonu Üniv. Taşköprü MYO Bilgisayar Teknolojileri Bölümü</span><span class="l-en" lang="en">Kastamonu Univ. Taşköprü Vocational School, Dept. of Computer Technologies</span> <span class="meta">(14.04.2023 - 30.07.2024)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Birim Kalite Temsilcisi</span><span class="l-en" lang="en">Unit Quality Representative</span></strong> · <span class="l-tr">Kastamonu Üniv. Taşköprü MYO</span><span class="l-en" lang="en">Kastamonu Univ. Taşköprü Vocational School</span> <span class="meta">(20.12.2023 - 30.07.2024)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Kantin ve Yemekhane Denetleme Komisyonu Üyesi</span><span class="l-en" lang="en">Member, Canteen and Cafeteria Inspection Commission</span></strong> · <span class="l-tr">Kastamonu Üniv. Taşköprü MYO</span><span class="l-en" lang="en">Kastamonu Univ. Taşköprü Vocational School</span> <span class="meta">(03.10.2022 - 30.07.2024)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Evrak İmha Komisyonu Üyesi</span><span class="l-en" lang="en">Member, Document Disposal Commission</span></strong> · <span class="l-tr">Kastamonu Üniv. Taşköprü MYO</span><span class="l-en" lang="en">Kastamonu Univ. Taşköprü Vocational School</span> <span class="meta">(03.10.2022 - 30.07.2024; 14.05.2018 - 05.11.2019)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Birim Kalite Üst Komisyonu Kalite Güvence Grubu Üyesi</span><span class="l-en" lang="en">Member, Quality Assurance Group, Unit Quality Commission</span></strong> · <span class="l-tr">Kastamonu Üniv. Taşköprü MYO</span><span class="l-en" lang="en">Kastamonu Univ. Taşköprü Vocational School</span> <span class="meta">(08.02.2022 - 30.07.2024)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Akreditasyon Komisyonu Üyesi</span><span class="l-en" lang="en">Member, Accreditation Commission</span></strong> · <span class="l-tr">Kastamonu Üniv. Taşköprü MYO</span><span class="l-en" lang="en">Kastamonu Univ. Taşköprü Vocational School</span> <span class="meta">(26.11.2021 - 30.07.2024)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Birim Kalite Üst Komisyonu Yönetim Sistemi Alt Çalışma Grubu Üyesi</span><span class="l-en" lang="en">Member, Management System Working Group, Unit Quality Commission</span></strong> · <span class="l-tr">Kastamonu Üniv. Taşköprü MYO</span><span class="l-en" lang="en">Kastamonu Univ. Taşköprü Vocational School</span> <span class="meta">(08.01.2020 - 30.07.2024)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Staj Komisyonu Üyesi</span><span class="l-en" lang="en">Member, Internship Commission</span></strong> · <span class="l-tr">Kastamonu Üniv. Taşköprü MYO</span><span class="l-en" lang="en">Kastamonu Univ. Taşköprü Vocational School</span> <span class="meta">(03.01.2022 - 01.05.2023)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Kayıt Dondurma ve Tek Ders Ekleme Komisyonu Üyesi</span><span class="l-en" lang="en">Member, Enrollment Suspension and Single Course Commission</span></strong> · <span class="l-tr">Kastamonu Üniv. Taşköprü MYO</span><span class="l-en" lang="en">Kastamonu Univ. Taşköprü Vocational School</span> <span class="meta">(22.10.2021 - 02.10.2022)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Sayım Komisyonu Üyesi</span><span class="l-en" lang="en">Member, Inventory Commission</span></strong> · <span class="l-tr">Kastamonu Üniv. Taşköprü MYO</span><span class="l-en" lang="en">Kastamonu Univ. Taşköprü Vocational School</span> <span class="meta">(14.06.2021 - 31.12.2021)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Yönetim Kurulu Üyesi</span><span class="l-en" lang="en">Member, Executive Board</span></strong> · <span class="l-tr">Kastamonu Üniv. Taşköprü MYO</span><span class="l-en" lang="en">Kastamonu Univ. Taşköprü Vocational School</span> <span class="meta">(07.08.2018 - 07.08.2021)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Yüksekokul Kurul Üyesi</span><span class="l-en" lang="en">Member, School Council</span></strong> · <span class="l-tr">Kastamonu Üniv. Taşköprü MYO</span><span class="l-en" lang="en">Kastamonu Univ. Taşköprü Vocational School</span> <span class="meta">(07.08.2018 - 07.08.2021)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-check" style="color:#CC0000"></i></span><strong><span class="l-tr">Bölüm Başkanı Vekili</span><span class="l-en" lang="en">Acting Head of Department</span></strong> · <span class="l-tr">Kastamonu Üniv. Taşköprü MYO Bilgisayar Teknolojileri Bölümü</span><span class="l-en" lang="en">Kastamonu Univ. Taşköprü Vocational School, Dept. of Computer Technologies</span> <span class="meta">(13.02.2018 - 02.07.2018)</span></li>
                     </ul>
-
-                    <div class="subheading mb-3">Üniversite Dışı Deneyim</div>
+                    <div class="subheading mb-3"><span class="l-tr">Üniversite Dışı Deneyim</span><span class="l-en" lang="en">Industry Experience</span></div>
                     <ul class="fa-ul mb-0">
-                        <li><span class="fa-li"><i class="fas fa-briefcase"></i></span><strong>Yazılım Geliştirici</strong> · EFT Bilişim <span class="meta">(2013 - 2014)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-briefcase"></i></span><strong>Yazılım ve Sistem Stajyeri</strong> · TCM - Teknoloji Çözümleri Merkezi <span class="meta">(2012 - 2013)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-briefcase"></i></span><strong>Yazılım Geliştirici</strong> · TouchMEdia Yazılım <span class="meta">(2011 - 2013)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-briefcase"></i></span><strong>Bilgi İşlem - Yazılım Sorumlusu</strong> · Özel Biga Can Hastanesi <span class="meta">(2009)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-briefcase"></i></span><strong>Bilgi İşlem Müdürü</strong> · Bandırma Özel Hastanesi <span class="meta">(2008 - 2009)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-briefcase"></i></span><strong>Sözleşmeli Bilgisayar Öğretmeni</strong> · Gönen Milli Eğitim Bakanlığı <span class="meta">(2003 - 2008)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-briefcase"></i></span><strong>Yazılım ve Sistem Stajyeri</strong> · Gönen Özel Kariyer Bilgisayar Kursu <span class="meta">(2003)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-briefcase"></i></span><strong>Bilgisayar Öğretmeni</strong> <span class="meta">(2003)</span></li>
-                        <li><span class="fa-li"><i class="fas fa-briefcase"></i></span><strong>Yazılım ve Sistem Stajyeri</strong> · Süleyman Demirel Üniversitesi <span class="meta">(2002 - 2003)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-briefcase" style="color:#CC0000"></i></span><strong><span class="l-tr">Yazılım Geliştirici</span><span class="l-en" lang="en">Software Developer</span></strong> · EFT Bilişim <span class="meta">(2013 - 2014)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-briefcase" style="color:#CC0000"></i></span><strong><span class="l-tr">Yazılım ve Sistem Stajyeri</span><span class="l-en" lang="en">Software and Systems Intern</span></strong> · <span class="l-tr">TCM - Teknoloji Çözümleri Merkezi</span><span class="l-en" lang="en">TCM - Technology Solutions Center</span> <span class="meta">(2012 - 2013)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-briefcase" style="color:#CC0000"></i></span><strong><span class="l-tr">Yazılım Geliştirici</span><span class="l-en" lang="en">Software Developer</span></strong> · TouchMEdia Yazılım <span class="meta">(2011 - 2013)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-briefcase" style="color:#CC0000"></i></span><strong><span class="l-tr">Bilgi İşlem - Yazılım Sorumlusu</span><span class="l-en" lang="en">IT - Software Officer</span></strong> · <span class="l-tr">Özel Biga Can Hastanesi</span><span class="l-en" lang="en">Biga Can Private Hospital</span> <span class="meta">(2009)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-briefcase" style="color:#CC0000"></i></span><strong><span class="l-tr">Bilgi İşlem Müdürü</span><span class="l-en" lang="en">IT Manager</span></strong> · <span class="l-tr">Bandırma Özel Hastanesi</span><span class="l-en" lang="en">Bandırma Private Hospital</span> <span class="meta">(2008 - 2009)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-briefcase" style="color:#CC0000"></i></span><strong><span class="l-tr">Sözleşmeli Bilgisayar Öğretmeni</span><span class="l-en" lang="en">Contract Computer Teacher</span></strong> · <span class="l-tr">Gönen Milli Eğitim Bakanlığı</span><span class="l-en" lang="en">Ministry of National Education, Gönen</span> <span class="meta">(2003 - 2008)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-briefcase" style="color:#CC0000"></i></span><strong><span class="l-tr">Yazılım ve Sistem Stajyeri</span><span class="l-en" lang="en">Software and Systems Intern</span></strong> · <span class="l-tr">Gönen Özel Kariyer Bilgisayar Kursu</span><span class="l-en" lang="en">Gönen Kariyer Private Computer Course</span> <span class="meta">(2003)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-briefcase" style="color:#CC0000"></i></span><strong><span class="l-tr">Bilgisayar Öğretmeni</span><span class="l-en" lang="en">Computer Teacher</span></strong> <span class="meta">(2003)</span></li>
+                        <li><span class="fa-li"><i class="fas fa-briefcase" style="color:#CC0000"></i></span><strong><span class="l-tr">Yazılım ve Sistem Stajyeri</span><span class="l-en" lang="en">Software and Systems Intern</span></strong> · <span class="l-tr">Süleyman Demirel Üniversitesi</span><span class="l-en" lang="en">Süleyman Demirel University</span> <span class="meta">(2002 - 2003)</span></li>
                     </ul>
                 </div>
             </section>
             <hr class="m-0" />
 
-            <!-- Articles-->
-            <section class="resume-section" id="articles">
+            <!-- Publications-->
+            <section class="resume-section" id="publications">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Yayınlar</h2>
-
-                    <div class="subheading mb-3">Uluslararası Hakemli Dergilerde Yayımlanan Makaleler</div>
+                    <h2 class="mb-5"><span class="l-tr">Yayınlar</span><span class="l-en" lang="en">Publications</span></h2>
+                    <div class="subheading mb-3"><span class="l-tr">Uluslararası Hakemli Dergilerde Yayımlanan Makaleler</span><span class="l-en" lang="en">Articles in International Peer-Reviewed Journals</span></div>
                     <ul class="fa-ul mb-5 pub-list">
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            Oğuz D., <strong>Genç S.</strong>, Sönmez Ö. Ş. (2026). YOLOv8-Based Automatic Lesion Detection in Breast Ultrasound Images: A Reproducible Evaluation on a Small and Imbalanced Dataset. <em>Journal of Computational Optimization &amp; Scientific Machine Learning</em>, 1(1), 1-15.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            Hakay C. B., <strong>Genç S.</strong> (2026). Comparative Analysis of Random Forest and Artificial Neural Network Models for Network Traffic Anomaly Detection on the NSL-KDD Dataset. <em>Journal of Computational Optimization &amp; Scientific Machine Learning</em>, 1(1), 39-50.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            Akkuş H. T., Özcan M., <strong>Genç S.</strong> (2025). <a href="https://doi.org/10.47097/piar.1817737">Kuantum Finans Alanında Ortaya Çıkan Eğilimler: Web of Science Verilerini Kullanarak Bibliyometrik Bir Araştırma</a>. <em>Pamukkale Üniversitesi İşletme Araştırmaları Dergisi</em>, 12(2), 753-765.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            Sobirjonovna Yakubova N., <strong>Genç S.</strong> (2025). Application of Dynamic Objects Control Using Quantum-Fuzzy Algorithms. <em>Development of Science</em>, (2), 352-362.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2025). Feature Selection Using Quantum Feature Maps: Performance Analysis of Classical and Quantum Models on the Breast Cancer Dataset. <em>International Journal of Data Science and Applications</em>, 7(1), 28-44.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2025). Edge Detection in Image Processing with Quantum Hadamard Transform: Theory and Application. <em>The International Journal of Innovative Approaches in Science Research (IJIASR)</em>.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2024). <a href="https://doi.org/10.1109/IDAP64064.2024.10710904">Performance Analysis of Quantum and Classical Machine Learning Models for Feature Selection and Classification of the Diabetes Health Indicators Dataset</a>. <em>2024 8th International Artificial Intelligence and Data Processing Symposium (IDAP)</em>, 1, 1-7.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2024). <a href="https://doi.org/10.14744/sigma.2024.00084">Automatic unit test generator software by collecting run-time data</a>. <em>Sigma Journal of Engineering and Natural Sciences</em>, 42(4), 988-1008.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2024). <a href="https://doi.org/10.5281/zenodo.10102956">Enhancing The Opcode Parsing Approach for Automated Unit Test Generation - Otomatik Birim Test Oluşturmak İçin Opcode Ayrıştırma Yaklaşımının Geliştirilmesi</a>. <em>Journal of Quantum Technologies and Informatics Research</em>, 2(1), 15-29.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            <strong>Genç S.</strong>, Yaşar C., Dargut Güler T. (2023). <a href="https://doi.org/10.5281/zenodo.10490500">Developing a program for teaching quantum programming to high school students in Turkey - Türkiye'de Kuantum Programlama Öğretimi İçin Lise Öğrencilerine Yönelik Program Geliştirilmesi</a>. <em>Journal of Advancements in Education</em>, 1(1), 68-95.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2023). <a href="https://doi.org/10.5281/zenodo.10102957">Transformation of Amino Acid Sequences with Quantum Programming - Kuantum Programlama ile Amino Asit Dizilimlerinin Dönüşümü</a>. <em>KTEAD (Kuantum Teknolojileri ve Enformatik Araştırmaları Dergisi)</em>, 1(1), 7-16.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2023). <a href="https://doi.org/10.5281/zenodo.10102957">The Impact of Quantum Technology on the Metaverse: Future Possibilities and Challenges - Kuantum Teknolojisinin Meta Evren Üzerindeki Etkisi: Gelecekteki Olanaklar ve Sorunlar</a>. <em>KTEAD (Kuantum Teknolojileri ve Enformatik Araştırmaları Dergisi)</em>, 1(1), 17-27.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            <strong>Genç S.</strong>, Bağcı D. (2019). <a href="http://www.jdatasci.com/index.php/jdatasci/article/view/20/9">Classification of Autism Spectrum Disorder: Deep Learning Approach</a>. <em>Data Science and Applications</em>, 2(1), 18-20.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            Hepkorucu A., <strong>Genç S.</strong> (2017). <a href="https://dergipark.org.tr/download/article-file/387850">Finansal Varlık Olarak Bitcoin'in İncelenmesi ve Birim Kök Yapısı Üzerine Bir Uygulama - Examination of Bitcoin as a Financial Asset and an Application on Unit Root Structure</a>. <em>Osmaniye Korkut Ata Üniversitesi İktisadi ve İdari Bilimler Fakültesi Dergisi</em>, 1(2), 47-58.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            Gök M., Koçal O. H., <strong>Genç S.</strong> (2016). <a href="https://doi.org/10.1007/s10989-015-9481-9">Prediction of Disordered Regions in Proteins Using Physicochemical Properties of Amino Acids</a>. <em>International Journal of Peptide Research and Therapeutics</em>, 22(1), 31-36.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>Oğuz D., <strong>Genç S.</strong>, Sönmez Ö. Ş. (2026). <a href="https://doi.org/10.56158/jcosml.2026.1.1.2" target="_blank" rel="noopener">YOLOv8-Based Automatic Lesion Detection in Breast Ultrasound Images: A Reproducible Evaluation on a Small and Imbalanced Dataset <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Journal of Computational Optimization &amp; Scientific Machine Learning</em>, 1(1), 1-15.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>Hakay C. B., <strong>Genç S.</strong> (2026). <a href="https://doi.org/10.56158/jcosml.2026.1.1.1" target="_blank" rel="noopener">Comparative Analysis of Random Forest and Artificial Neural Network Models for Network Traffic Anomaly Detection on the NSL-KDD Dataset <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Journal of Computational Optimization &amp; Scientific Machine Learning</em>, 1(1), 39-50.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>Akkuş H. T., Özcan M., <strong>Genç S.</strong> (2025). <a href="https://dergipark.org.tr/tr/pub/piar/article/1817737" target="_blank" rel="noopener">Kuantum Finans Alanında Ortaya Çıkan Eğilimler: Web of Science Verilerini Kullanarak Bibliyometrik Bir Araştırma <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Pamukkale Üniversitesi İşletme Araştırmaları Dergisi</em>, 12(2), 753-765. DOI: 10.47097/piar.1817737</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>Sobirjonovna Yakubova N., <strong>Genç S.</strong> (2025). Application of Dynamic Objects Control Using Quantum-Fuzzy Algorithms. <em>Development of Science</em>, (2), 352-362.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span><strong>Genç S.</strong> (2025). <a href="https://dergipark.org.tr/en/pub/joindata/article/1565664" target="_blank" rel="noopener">Feature Selection Using Quantum Feature Maps: Performance Analysis of Classical and Quantum Models on the Breast Cancer Dataset <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>International Journal of Data Science and Applications</em>, 7(1), 28-44.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span><strong>Genç S.</strong> (2025). Edge Detection in Image Processing with Quantum Hadamard Transform: Theory and Application. <em>The International Journal of Innovative Approaches in Science Research (IJIASR)</em>.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span><strong>Genç S.</strong> (2024). <a href="https://doi.org/10.1109/IDAP64064.2024.10710904" target="_blank" rel="noopener">Performance Analysis of Quantum and Classical Machine Learning Models for Feature Selection and Classification of the Diabetes Health Indicators Dataset <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>2024 8th International Artificial Intelligence and Data Processing Symposium (IDAP)</em>, 1, 1-7.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span><strong>Genç S.</strong> (2024). <a href="https://doi.org/10.14744/sigma.2024.00084" target="_blank" rel="noopener">Automatic unit test generator software by collecting run-time data <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Sigma Journal of Engineering and Natural Sciences</em>, 42(4), 988-1008.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span><strong>Genç S.</strong> (2024). <a href="https://doi.org/10.70447/ktve.2301" target="_blank" rel="noopener">Enhancing The Opcode Parsing Approach for Automated Unit Test Generation - Otomatik Birim Test Oluşturmak İçin Opcode Ayrıştırma Yaklaşımının Geliştirilmesi <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Journal of Quantum Technologies and Informatics Research</em>, 2(1), 15-29.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span><strong>Genç S.</strong>, Yaşar C., Dargut Güler T. (2023). <a href="https://journals.academicianstudies.com/jae/article/view/237" target="_blank" rel="noopener">Developing a program for teaching quantum programming to high school students in Turkey - Türkiye'de Kuantum Programlama Öğretimi İçin Lise Öğrencilerine Yönelik Program Geliştirilmesi <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Journal of Advancements in Education</em>, 1(1), 68-95.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span><strong>Genç S.</strong> (2023). <a href="https://doi.org/10.70447/ktve.2234" target="_blank" rel="noopener">Transformation of Amino Acid Sequences with Quantum Programming - Kuantum Programlama ile Amino Asit Dizilimlerinin Dönüşümü <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>KTEAD (Kuantum Teknolojileri ve Enformatik Araştırmaları Dergisi)</em>, 1(1), 7-16.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span><strong>Genç S.</strong> (2023). <a href="https://doi.org/10.70447/ktve.2222" target="_blank" rel="noopener">The Impact of Quantum Technology on the Metaverse: Future Possibilities and Challenges - Kuantum Teknolojisinin Meta Evren Üzerindeki Etkisi: Gelecekteki Olanaklar ve Sorunlar <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>KTEAD (Kuantum Teknolojileri ve Enformatik Araştırmaları Dergisi)</em>, 1(1), 17-27.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span><strong>Genç S.</strong>, Bağcı D. (2019). <a href="https://dergipark.org.tr/en/pub/datasci/article/1661808" target="_blank" rel="noopener">Classification of Autism Spectrum Disorder: Deep Learning Approach <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Data Science and Applications</em>, 2(1), 18-20.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>Hepkorucu A., <strong>Genç S.</strong> (2017). <a href="https://dergipark.org.tr/en/pub/oskauiibfd/article/335669" target="_blank" rel="noopener">Finansal Varlık Olarak Bitcoin'in İncelenmesi ve Birim Kök Yapısı Üzerine Bir Uygulama - Examination of Bitcoin as a Financial Asset and an Application on Unit Root Structure <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Osmaniye Korkut Ata Üniversitesi İktisadi ve İdari Bilimler Fakültesi Dergisi</em>, 1(2), 47-58.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>Gök M., Koçal O. H., <strong>Genç S.</strong> (2016). <a href="https://doi.org/10.1007/s10989-015-9481-9" target="_blank" rel="noopener">Prediction of Disordered Regions in Proteins Using Physicochemical Properties of Amino Acids <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>International Journal of Peptide Research and Therapeutics</em>, 22(1), 31-36.</li>
                     </ul>
-
-                    <div class="subheading mb-3">Ulusal Hakemli Dergilerde Yayımlanan Makaleler</div>
+                    <div class="subheading mb-3"><span class="l-tr">Ulusal Hakemli Dergilerde Yayımlanan Makaleler</span><span class="l-en" lang="en">Articles in National Peer-Reviewed Journals</span></div>
                     <ul class="fa-ul mb-5 pub-list">
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2022). Common Future of Blockchain and Quantum Computing in Information Technologies: Quantum Blockchain - Bilişim Teknolojilerinde Blok Zincir ve Kuantum Hesaplamanın Ortak Geleceği: Kuantum Blok Zinciri. <em>Veri Bilimi Dergisi</em>, 5(2), 53-63.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            Bağcı Daş D., <strong>Genç S.</strong> (2022). Investigating Word Association Mining Techniques. <em>Veri Bilimi Dergisi</em>, 5(2), 106-114.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            Hepkorucu A., <strong>Genç S.</strong> (2019). <a href="https://dergipark.org.tr/download/article-file/761236">Kripto Para Değerleri için Spekülatif Fiyat Balonlarının Test Edilmesi: Bitcoin Üzerine Bir Uygulama - Testing Speculative Price Bubbles for Crypto Money Values: An Application for Bitcoin</a>. <em>Veri Bilimi Dergisi</em>, 2(1), 44-50.</li>
-                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>
-                            Bağcı D., Daş O., <strong>Genç S.</strong> (2018). <a href="http://buje.baskent.edu.tr/index.php/buje/article/view/107/113">Mesleki ve Teknik Yükseköğretim Kurumları Öğrencilerinin Sektördeki Modern Teknolojilerle Uyum Süreçlerinin Yapılandırılması</a>. <em>Başkent University Journal of Education</em>, 47-54.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span><strong>Genç S.</strong> (2022). <a href="https://dergipark.org.tr/en/pub/veri/article/1216786" target="_blank" rel="noopener">Common Future of Blockchain and Quantum Computing in Information Technologies: Quantum Blockchain - Bilişim Teknolojilerinde Blok Zincir ve Kuantum Hesaplamanın Ortak Geleceği: Kuantum Blok Zinciri <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Veri Bilimi Dergisi</em>, 5(2), 53-63.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>Bağcı Daş D., <strong>Genç S.</strong> (2022). <a href="https://dergipark.org.tr/en/pub/veri/article/1185835" target="_blank" rel="noopener">Investigating Word Association Mining Techniques <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Veri Bilimi Dergisi</em>, 5(2), 106-114.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>Hepkorucu A., <strong>Genç S.</strong> (2019). <a href="https://dergipark.org.tr/en/pub/veri/article/494043" target="_blank" rel="noopener">Kripto Para Değerleri için Spekülatif Fiyat Balonlarının Test Edilmesi: Bitcoin Üzerine Bir Uygulama - Testing Speculative Price Bubbles for Crypto Money Values: An Application for Bitcoin <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Veri Bilimi Dergisi</em>, 2(1), 44-50.</li>
+                        <li><span class="fa-li"><i class="fas fa-book" style="color:red"></i></span>Bağcı D., Daş O., <strong>Genç S.</strong> (2018). <a href="http://buje.baskent.edu.tr/index.php/buje/article/view/107/113" target="_blank" rel="noopener">Mesleki ve Teknik Yükseköğretim Kurumları Öğrencilerinin Sektördeki Modern Teknolojilerle Uyum Süreçlerinin Yapılandırılması <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Başkent University Journal of Education</em>, 47-54.</li>
                     </ul>
-
-                    <div class="subheading mb-3">Uluslararası Bilimsel Toplantılarda Sunulan Bildiriler</div>
+                    <div class="subheading mb-3"><span class="l-tr">Uluslararası Bilimsel Toplantılarda Sunulan Bildiriler</span><span class="l-en" lang="en">Papers Presented at International Conferences</span></div>
                     <ul class="fa-ul mb-5 pub-list">
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Şahin H. (2026). Power Forecasting in Floating Photovoltaic Systems: A Comparative Analysis of Classical Machine Learning and Quantum Machine Learning Approaches Over the Balıkesir Region. <em>11th International Conference on Computer Science and Engineering (UBMK 2026)</em>. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Çelikaslan Ş. G. (2026). Comparative Analysis of Classical Machine Learning and Quantum Machine Learning on the NASA C-MAPSS Turbofan Engine Dataset: A Comprehensive Experimental Evaluation Focused on Fault Detection (FD001–FD004). <em>11th International Conference on Computer Science and Engineering (UBMK 2026)</em>. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong> (2026). QUBO-Based QAOA Gene Selection in Alzheimer's Disease: A Quantum-Classical Comparative Study on GEO GSE48350 Real Data. <em>10th International Artificial Intelligence and Data Processing Symposium (IDAP 2026)</em>. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Çelikaslan Ş. G. (2026). A Fair Comparison of Quantum and Classical Machine Learning for Predictive Maintenance on the AI4I 2020 Dataset. <em>10th International Artificial Intelligence and Data Processing Symposium (IDAP 2026)</em>. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong> (2026). Modelling of Geothermal Gradient Distribution in the Balıkesir Region via Physics-Informed Neural Networks (PINNs). <em>The 4th International Conference on Applied Mathematics in Engineering (ICAME'26)</em>. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Şahin H. (2026). Quantum Machine Learning in Renewable Energy Systems: A Literature Review on QNN, VQC, and QAOA Applications - Yenilenebilir Enerji Sistemlerinde Kuantum Makine Öğrenimi: QNN, VQC ve QAOA Uygulamalarına İlişkin Bir Literatür İncelemesi. <em>1st International R&amp;D, Design and Innovation Conference (REDin '26)</em>, 71-83. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            Akkuş H. T., Özcan M., <strong>Genç S.</strong> (2025). Kuantum Finans Alanında Ortaya Çıkan Eğilimler: Web of Science Verilerini Kullanarak Bibliyometrik Bir Araştırma. <em>4. Uluslararası Sigortacılık, Bankacılık ve Finans Sempozyumu</em>. <span class="pub-type">Özet / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Ceylan M. F., İstanbullu A. (2025). Software Unit Test Automation with LLM-Based Generative AI: Evaluating Test Quality through Code Coverage and Edge-Case Analysis. <em>10th International Conference on Computer Science and Engineering (UBMK 2025)</em>. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            Bağcı Daş D., <strong>Genç S.</strong> (2024). Cognitive State Prediction via EEG Signals Using Convolutional Neural Network. <em>ICONDATA'24 - 6th International Conference on Data Science and Applications</em>, 14. <span class="pub-type">Tam Metin ve Özet / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Bağcı Daş D. (2024). Analysis of Deep Learning Performance in MNIST Image Classification Using a Hybrid QCNN-CNN Approach with Quantum and Classical Neural Network Models. <em>ICONDATA'24 - 6th International Conference on Data Science and Applications</em>, 11. <span class="pub-type">Özet / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong> (2024). Feature Selection Using Quantum Feature Maps: Performance Analysis of Classical and Quantum Models on the Breast Cancer Dataset. <em>ICONDATA'24 - 6th International Conference on Data Science and Applications</em>, 13. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong> (2024). <a href="https://doi.org/10.1109/IDAP64064.2024.10710904">Performance Analysis of Quantum and Classical Machine Learning Models for Feature Selection and Classification of the Diabetes Health Indicators Dataset</a>. <em>8th International Artificial Intelligence and Data Processing Symposium (IDAP'24)</em>, 21-22 Eylül 2024, Malatya, 1-7. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Tekin B. Y. (2022). Skolyoz Hastalığının Evrişimsel Sinir Ağları ile Tespiti ve Analizi. <em>5th International Conference on Data Science and Applications</em>. <span class="pub-type">Özet / Poster</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            Altay G., <strong>Genç S.</strong>, Usta G. B., Ördek F. B., Türker H., Yaşar C. (2022). Kuantum Programlama Öğretimi İçin Lise Öğrencilerine Yönelik Program Geliştirilmesi. <em>15. Uluslararası Bilgisayar ve Öğretim Teknolojileri Sempozyumu</em>, 102-103. <span class="pub-type">Özet / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong> (2019). <a href="http://icelis.net/wp-content/uploads/2019/08/IcelisProceedingBook2019EarlyView-1.pdf">A Literature Review of Ambient Intelligence - Ortam Zekasının Literatürdeki Yeri</a>. <em>ICELIS'19 - International Congress on Engineering and Life Science</em>, 41-44. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong> (2019). <a href="http://icelis.net/wp-content/uploads/2019/08/IcelisProceedingBook2019EarlyView-1.pdf">Breast Cancer Classification: An Adaptive Neuro-Fuzzy Inference System Approach - Göğüs Kanseri Sınıflandırılması: Adaptif Ağ Tabanlı Bulanık Mantık Sistemi Yaklaşımı</a>. <em>ICELIS'19 - International Congress on Engineering and Life Science</em>, 217-223. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Hepkorucu A. (2018). <a href="http://kayit.asoscongress.com/files/asos2018alanya/2018_Sosyal_Beşeri_ve_İdari_Bilimler_Tam_Metin_Kitabı.pdf">Finansal Varlık Fiyatlarının Kaotik Sistemler Açısından İncelenmesi: Bitcoin Fiyatları Üzerine Bir Uygulama</a>. <em>ASOS Congress - IV. Uluslararası Sosyal Beşeri ve İdari Bilimler Sempozyumu</em>, 851-856. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Hepkorucu A. (2018). <a href="http://kayit.asoscongress.com/files/asos2018alanya/2018_Sosyal_Beşeri_ve_İdari_Bilimler_Tam_Metin_Kitabı.pdf">Finansal Varlık Fiyatlarının Yapay Sinir Ağlarıyla Tahminlenmesi: Bitcoin Endeksi Üzerine Bir Uygulama</a>. <em>ASOS Congress - IV. Uluslararası Sosyal Beşeri ve İdari Bilimler Sempozyumu</em>, 1501-1507. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Bağcı D. (2018). <a href="http://icelis.net/wp-content/uploads/2018/06/ICELIS2018-Abstract-Book-01.06.2018.pdf">Autism Spectrum Disorder Classification: A Deep Learning Approach - Otizm Spektrum Bozukluğu Sınıflandırması: Derin Öğrenme Yaklaşımı</a>. <em>ICELIS'18 - International Congress on Engineering and Life Science</em>. <span class="pub-type">Özet / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            Daş O., Bağcı D., <strong>Genç S.</strong> (2018). <a href="http://icelis.net/wp-content/uploads/2018/06/ICELIS2018-Abstract-Book-01.06.2018.pdf">Using Artificial Intelligence Algorithms in Damage Detection of Structural Elements</a>. <em>ICELIS'18 - International Congress on Engineering and Life Science</em>, 202. <span class="pub-type">Özet / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Bağcı D., Ortaç G., Daş O. (2017). <a href="https://icente.selcuk.edu.tr/uploads/files2/ICENTE_proceeding_V3.pdf">The Performance Analysis of Optical Burst Switching by Random Forest Algorithm</a>. <em>ICENTE'17 - International Conference on Engineering Technologies</em>, Konya. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            Küçüksille E. U., <strong>Genç S.</strong>, Aydın F., Bağcı D. (2017). <a href="http://www.ismsitconf.org/ismsit2017_tokat/abstracts_book.pdf">Test Tabanlı Yazılım Geliştirme Sürecinde Türkiye'de Selenium Kullanımı - The Use of Selenium in Turkey as Test Based Software Development</a>. <em>ISMSIT 2017 International Symposium on Multidisciplinary Studies and Innovative Technologies</em>, 74-75. <span class="pub-type">Özet / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            Aydın F., <strong>Genç S.</strong> (2017). <a href="http://www.ismsitconf.org/ismsit2017_tokat/abstracts_book.pdf">Kontrol Sistemleri Eğitiminde Tasarım Örneği: Akıllı Ev Uygulaması - Design Example in Control Systems Education: An Application of Smart Home</a>. <em>ISMSIT 2017 International Symposium on Multidisciplinary Studies and Innovative Technologies</em>, 76-77. <span class="pub-type">Özet / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            Bağcı D., Daş O., <strong>Genç S.</strong> (2017). <a href="http://isvet2017.baskent.edu.tr/doc/isvet_bildiri_kitapcigi.pdf">Mesleki ve Teknik Yükseköğretim Kurumları Öğrencilerinin Sektördeki Modern Teknolojilerle Uyum Süreçlerinin Yapılandırılması - Structuring the Process of the Students of Vocational and Technical Higher Education Institutions to Adapt the Modern Technologies in Industry</a>. <em>ISVET-2017 International Symposium on Post-Secondary Vocational Education and Training</em>, Ankara. <span class="pub-type">Özet / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Gök M., Durgut A. (2015). <a href="https://www.2015.icres.net/ICRES2015_Proceeding_Book.pdf">Proteinlerde Düzensiz Bölgelerin Makine Öğrenmesi Yöntemleri ile Tespiti</a>. <em>International Conference on Research in Education and Science (ICRES)</em>. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Gök M., Koçal O. H. (2015). <a href="https://airccj.org/CSCP/vol5/csit53215.pdf">The Chaotic Structure of Bacterial Virulence Protein Sequences</a>. <em>International Conference on Artificial Intelligence &amp; Applications</em>. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            Küçüksille E. U., <strong>Genç S.</strong>, Karabulut Y. E. (2013). <a href="https://www.academia.edu/5453632/Dünyada_Siber_Güvenlik_Stratejileri_ve_Bir_Siber_Güvenlik_Stratejisinin_Olusumu">Dünyada Siber Güvenlik Stratejileri ve Bir Siber Güvenlik Stratejisinin Oluşumu</a>. <em>1st International Symposium on Digital Forensics and Security</em>, Elazığ. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Şahin H. (2026). Power Forecasting in Floating Photovoltaic Systems: A Comparative Analysis of Classical Machine Learning and Quantum Machine Learning Approaches Over the Balıkesir Region. <em>11th International Conference on Computer Science and Engineering (UBMK 2026)</em>. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Çelikaslan Ş. G. (2026). Comparative Analysis of Classical Machine Learning and Quantum Machine Learning on the NASA C-MAPSS Turbofan Engine Dataset: A Comprehensive Experimental Evaluation Focused on Fault Detection (FD001–FD004). <em>11th International Conference on Computer Science and Engineering (UBMK 2026)</em>. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong> (2026). QUBO-Based QAOA Gene Selection in Alzheimer's Disease: A Quantum-Classical Comparative Study on GEO GSE48350 Real Data. <em>10th International Artificial Intelligence and Data Processing Symposium (IDAP 2026)</em>. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Çelikaslan Ş. G. (2026). A Fair Comparison of Quantum and Classical Machine Learning for Predictive Maintenance on the AI4I 2020 Dataset. <em>10th International Artificial Intelligence and Data Processing Symposium (IDAP 2026)</em>. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong> (2026). <a href="https://icame.balikesir.edu.tr/Abstracts_Book_2026_v3-2.pdf" target="_blank" rel="noopener">Modelling of Geothermal Gradient Distribution in the Balıkesir Region via Physics-Informed Neural Networks (PINNs) <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>The 4th International Conference on Applied Mathematics in Engineering (ICAME'26)</em>. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Şahin H. (2026). Quantum Machine Learning in Renewable Energy Systems: A Literature Review on QNN, VQC, and QAOA Applications - Yenilenebilir Enerji Sistemlerinde Kuantum Makine Öğrenimi: QNN, VQC ve QAOA Uygulamalarına İlişkin Bir Literatür İncelemesi. <em>1st International R&amp;D, Design and Innovation Conference (REDin '26)</em>, 71-83. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span>Akkuş H. T., Özcan M., <strong>Genç S.</strong> (2025). Kuantum Finans Alanında Ortaya Çıkan Eğilimler: Web of Science Verilerini Kullanarak Bibliyometrik Bir Araştırma. <em>4. Uluslararası Sigortacılık, Bankacılık ve Finans Sempozyumu</em>. <span class="pub-type"><span class="l-tr">Özet / Sözlü Sunum</span><span class="l-en" lang="en">Abstract / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Ceylan M. F., İstanbullu A. (2025). <a href="https://doi.org/10.1109/UBMK67458.2025.11206953" target="_blank" rel="noopener">Software Unit Test Automation with LLM-Based Generative AI: Evaluating Test Quality through Code Coverage and Edge-Case Analysis <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>10th International Conference on Computer Science and Engineering (UBMK 2025)</em>, 242-247. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span>Bağcı Daş D., <strong>Genç S.</strong> (2024). <a href="https://www.icondata.org/uploads/kcfinder/upload/files/final_ICONDATA24_abstract.pdf" target="_blank" rel="noopener">Cognitive State Prediction via EEG Signals Using Convolutional Neural Network <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>ICONDATA'24 - 6th International Conference on Data Science and Applications</em>, 14. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Bağcı Daş D. (2024). <a href="https://www.icondata.org/uploads/kcfinder/upload/files/final_ICONDATA24_abstract.pdf" target="_blank" rel="noopener">Analysis of Deep Learning Performance in MNIST Image Classification Using a Hybrid QCNN-CNN Approach with Quantum and Classical Neural Network Models <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>ICONDATA'24 - 6th International Conference on Data Science and Applications</em>, 11. <span class="pub-type"><span class="l-tr">Özet / Sözlü Sunum</span><span class="l-en" lang="en">Abstract / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong> (2024). <a href="https://www.icondata.org/uploads/kcfinder/upload/files/final_ICONDATA24_abstract.pdf" target="_blank" rel="noopener">Feature Selection Using Quantum Feature Maps: Performance Analysis of Classical and Quantum Models on the Breast Cancer Dataset <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>ICONDATA'24 - 6th International Conference on Data Science and Applications</em>, 13. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong> (2024). <a href="https://doi.org/10.1109/IDAP64064.2024.10710904" target="_blank" rel="noopener">Performance Analysis of Quantum and Classical Machine Learning Models for Feature Selection and Classification of the Diabetes Health Indicators Dataset <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>8th International Artificial Intelligence and Data Processing Symposium (IDAP'24)</em>, Malatya, 1-7. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Tekin B. Y. (2022). Skolyoz Hastalığının Evrişimsel Sinir Ağları ile Tespiti ve Analizi. <em>5th International Conference on Data Science and Applications</em>. <span class="pub-type"><span class="l-tr">Özet / Poster</span><span class="l-en" lang="en">Abstract / Poster</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span>Altay G., <strong>Genç S.</strong>, Usta G. B., Ördek F. B., Türker H., Yaşar C. (2022). <a href="https://cdn.comu.edu.tr/cms/icits2022/files/20-icits2022_ozet_kitabi.pdf" target="_blank" rel="noopener">Kuantum Programlama Öğretimi İçin Lise Öğrencilerine Yönelik Program Geliştirilmesi <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>15. Uluslararası Bilgisayar ve Öğretim Teknolojileri Sempozyumu (ICITS 2022)</em>, 102-103. <span class="pub-type"><span class="l-tr">Özet / Sözlü Sunum</span><span class="l-en" lang="en">Abstract / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong> (2019). <a href="http://icelis.net/wp-content/uploads/2019/08/IcelisProceedingBook2019EarlyView-1.pdf" target="_blank" rel="noopener">A Literature Review of Ambient Intelligence - Ortam Zekasının Literatürdeki Yeri <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>ICELIS'19 - International Congress on Engineering and Life Science</em>, 41-44. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong> (2019). <a href="http://icelis.net/wp-content/uploads/2019/08/IcelisProceedingBook2019EarlyView-1.pdf" target="_blank" rel="noopener">Breast Cancer Classification: An Adaptive Neuro-Fuzzy Inference System Approach - Göğüs Kanseri Sınıflandırılması: Adaptif Ağ Tabanlı Bulanık Mantık Sistemi Yaklaşımı <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>ICELIS'19 - International Congress on Engineering and Life Science</em>, 217-223. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Hepkorucu A. (2018). <a href="http://kayit.asoscongress.com/files/asos2018alanya/2018_Sosyal_Beşeri_ve_İdari_Bilimler_Tam_Metin_Kitabı.pdf" target="_blank" rel="noopener">Finansal Varlık Fiyatlarının Kaotik Sistemler Açısından İncelenmesi: Bitcoin Fiyatları Üzerine Bir Uygulama <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>ASOS Congress - IV. Uluslararası Sosyal Beşeri ve İdari Bilimler Sempozyumu</em>, 851-856. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Hepkorucu A. (2018). <a href="http://kayit.asoscongress.com/files/asos2018alanya/2018_Sosyal_Beşeri_ve_İdari_Bilimler_Tam_Metin_Kitabı.pdf" target="_blank" rel="noopener">Finansal Varlık Fiyatlarının Yapay Sinir Ağlarıyla Tahminlenmesi: Bitcoin Endeksi Üzerine Bir Uygulama <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>ASOS Congress - IV. Uluslararası Sosyal Beşeri ve İdari Bilimler Sempozyumu</em>, 1501-1507. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Bağcı D. (2018). <a href="http://icelis.net/wp-content/uploads/2018/06/ICELIS2018-Abstract-Book-01.06.2018.pdf" target="_blank" rel="noopener">Autism Spectrum Disorder Classification: A Deep Learning Approach - Otizm Spektrum Bozukluğu Sınıflandırması: Derin Öğrenme Yaklaşımı <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>ICELIS'18 - International Congress on Engineering and Life Science</em>. <span class="pub-type"><span class="l-tr">Özet / Sözlü Sunum</span><span class="l-en" lang="en">Abstract / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span>Daş O., Bağcı D., <strong>Genç S.</strong> (2018). <a href="http://icelis.net/wp-content/uploads/2018/06/ICELIS2018-Abstract-Book-01.06.2018.pdf" target="_blank" rel="noopener">Using Artificial Intelligence Algorithms in Damage Detection of Structural Elements <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>ICELIS'18 - International Congress on Engineering and Life Science</em>, 202. <span class="pub-type"><span class="l-tr">Özet / Sözlü Sunum</span><span class="l-en" lang="en">Abstract / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Bağcı D., Ortaç G., Daş O. (2017). <a href="https://icente.selcuk.edu.tr/uploads/files2/ICENTE_proceeding_V3.pdf" target="_blank" rel="noopener">The Performance Analysis of Optical Burst Switching by Random Forest Algorithm <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>ICENTE'17 - International Conference on Engineering Technologies</em>, Konya. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span>Küçüksille E. U., <strong>Genç S.</strong>, Aydın F., Bağcı D. (2017). <a href="http://www.ismsitconf.org/ismsit2017_tokat/abstracts_book.pdf" target="_blank" rel="noopener">Test Tabanlı Yazılım Geliştirme Sürecinde Türkiye'de Selenium Kullanımı - The Use of Selenium in Turkey as Test Based Software Development <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>ISMSIT 2017 International Symposium on Multidisciplinary Studies and Innovative Technologies</em>, 74-75. <span class="pub-type"><span class="l-tr">Özet / Sözlü Sunum</span><span class="l-en" lang="en">Abstract / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span>Aydın F., <strong>Genç S.</strong> (2017). <a href="http://www.ismsitconf.org/ismsit2017_tokat/abstracts_book.pdf" target="_blank" rel="noopener">Kontrol Sistemleri Eğitiminde Tasarım Örneği: Akıllı Ev Uygulaması - Design Example in Control Systems Education: An Application of Smart Home <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>ISMSIT 2017 International Symposium on Multidisciplinary Studies and Innovative Technologies</em>, 76-77. <span class="pub-type"><span class="l-tr">Özet / Sözlü Sunum</span><span class="l-en" lang="en">Abstract / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span>Bağcı D., Daş O., <strong>Genç S.</strong> (2017). <a href="http://isvet2017.baskent.edu.tr/doc/isvet_bildiri_kitapcigi.pdf" target="_blank" rel="noopener">Mesleki ve Teknik Yükseköğretim Kurumları Öğrencilerinin Sektördeki Modern Teknolojilerle Uyum Süreçlerinin Yapılandırılması - Structuring the Process of the Students of Vocational and Technical Higher Education Institutions to Adapt the Modern Technologies in Industry <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>ISVET-2017 International Symposium on Post-Secondary Vocational Education and Training</em>, Ankara. <span class="pub-type"><span class="l-tr">Özet / Sözlü Sunum</span><span class="l-en" lang="en">Abstract / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Gök M., Durgut A. (2015). <a href="https://www.2015.icres.net/ICRES2015_Proceeding_Book.pdf" target="_blank" rel="noopener">Proteinlerde Düzensiz Bölgelerin Makine Öğrenmesi Yöntemleri ile Tespiti <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>International Conference on Research in Education and Science (ICRES)</em>. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Gök M., Koçal O. H. (2015). <a href="https://airccj.org/CSCP/vol5/csit53215.pdf" target="_blank" rel="noopener">The Chaotic Structure of Bacterial Virulence Protein Sequences <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>International Conference on Artificial Intelligence &amp; Applications</em>. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span>Küçüksille E. U., <strong>Genç S.</strong>, Karabulut Y. E. (2013). <a href="https://www.academia.edu/5453632/Dünyada_Siber_Güvenlik_Stratejileri_ve_Bir_Siber_Güvenlik_Stratejisinin_Olusumu" target="_blank" rel="noopener">Dünyada Siber Güvenlik Stratejileri ve Bir Siber Güvenlik Stratejisinin Oluşumu <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>1st International Symposium on Digital Forensics and Security</em>, Elazığ. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
                     </ul>
-
-                    <div class="subheading mb-3">Ulusal Bilimsel Toplantılarda Sunulan Bildiriler</div>
+                    <div class="subheading mb-3"><span class="l-tr">Ulusal Bilimsel Toplantılarda Sunulan Bildiriler</span><span class="l-en" lang="en">Papers Presented at National Conferences</span></div>
                     <ul class="fa-ul mb-0 pub-list">
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            <strong>Genç S.</strong>, Çelikaslan Ş. G. (2026). Comparison of Classical Machine Learning and Quantum Machine Learning in Industrial Fault Detection: An Examination on the NASA Turbofan Dataset - Endüstriyel Arıza Tespitinde Klasik Makine Öğrenmesi ve Kuantum Makine Öğrenmesi Karşılaştırması: NASA Turbofan Veri Seti Üzerine Bir İnceleme. <em>Trakya Üniversiteler Birliği 9. Lisansüstü Öğrenci Kongresi (TUBLOK 2026)</em>, 135-136. <span class="pub-type">Özet / Sözlü Sunum</span></li>
-                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#bd5d38"></i></span>
-                            Küçüksille E. U., <strong>Genç S.</strong>, Özger F. (2013). <a href="https://ab.org.tr/ab13/bildiri/212.pdf">Mobil Bulut Bilişim ve Geleceği</a>. <em>Akademik Bilişim 2013</em>, Antalya. <span class="pub-type">Tam Metin / Sözlü Sunum</span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span><strong>Genç S.</strong>, Çelikaslan Ş. G. (2026). Comparison of Classical Machine Learning and Quantum Machine Learning in Industrial Fault Detection: An Examination on the NASA Turbofan Dataset - Endüstriyel Arıza Tespitinde Klasik Makine Öğrenmesi ve Kuantum Makine Öğrenmesi Karşılaştırması: NASA Turbofan Veri Seti Üzerine Bir İnceleme. <em>Trakya Üniversiteler Birliği 9. Lisansüstü Öğrenci Kongresi (TUBLOK 2026)</em>, 135-136. <span class="pub-type"><span class="l-tr">Özet / Sözlü Sunum</span><span class="l-en" lang="en">Abstract / Oral Presentation</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-microphone" style="color:#CC0000"></i></span>Küçüksille E. U., <strong>Genç S.</strong>, Özger F. (2013). <a href="https://ab.org.tr/ab13/bildiri/212.pdf" target="_blank" rel="noopener">Mobil Bulut Bilişim ve Geleceği <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Akademik Bilişim 2013</em>, Antalya. <span class="pub-type"><span class="l-tr">Tam Metin / Sözlü Sunum</span><span class="l-en" lang="en">Full Paper / Oral Presentation</span></span></li>
                     </ul>
                 </div>
             </section>
@@ -322,40 +291,25 @@
             <!-- Books-->
             <section class="resume-section" id="books">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Kitaplar ve Kitap Bölümleri</h2>
-
-                    <div class="subheading mb-3">Kitaplar</div>
+                    <h2 class="mb-5"><span class="l-tr">Kitaplar ve Kitap Bölümleri</span><span class="l-en" lang="en">Books and Book Chapters</span></h2>
+                    <div class="subheading mb-3"><span class="l-tr">Kitaplar</span><span class="l-en" lang="en">Books</span></div>
                     <ul class="fa-ul mb-5 pub-list">
-                        <li><span class="fa-li"><i class="fas fa-book-open" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2026). <em>Kuantum Hesaplama ve Programlama: Matematiksel Temeller ve Uygulamalı Araçlar ile Qiskit 2.0, Cirq ve QuTiP</em>. Holistence Publications, 340 s., ISBN: 978-625-392-549-9.</li>
+                        <li><span class="fa-li"><i class="fas fa-book-open" style="color:red"></i></span><strong>Genç S.</strong> (2026). <em>Kuantum Hesaplama ve Programlama: Matematiksel Temeller ve Uygulamalı Araçlar ile Qiskit 2.0, Cirq ve QuTiP</em>. Holistence Publications. ISBN: 978-625-392-549-9.</li>
                     </ul>
-
-                    <div class="subheading mb-3">Kitap Bölümleri</div>
+                    <div class="subheading mb-3"><span class="l-tr">Kitap Bölümleri</span><span class="l-en" lang="en">Book Chapters</span></div>
                     <ul class="fa-ul mb-0 pub-list">
-                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2026). Sağlık Turizminde Kuantum Yapay Zeka ve Hesaplama Yaklaşımları: Teori, Uygulama ve Gelecek Öngörüleri. <em>Sağlık Turizminde Veri Bilimi ve Yapay Zeka</em>. Nobel.</li>
-                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2026). Sağlık Turizminde Veri Bilimi ve Makine Öğrenmesi: Regresyon, Sınıflandırma ve Kümeleme Ekseninde Gelecek Projeksiyonları. <em>Sağlık Turizminde Veri Bilimi ve Yapay Zeka</em>. Nobel.</li>
-                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2026). Machine Learning and Artificial Intelligence Applications in Parkinson's Disease: A Comprehensive Review of the Last Decade. <em>Health &amp; Science 2026-I</em> (Ed. H. Kafadar). Efe Akademi. ISBN: 978-625-392-859-9.</li>
-                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span>
-                            <strong>Genç S.</strong>, Çelikaslan Ş. G. (2026). Artificial Intelligence Integration in the Internet of Things (IoT) and Intelligent Systems. <em>Bilişim Sistemleri ve Bilgisayar Bilimlerinde Yapay Zekâ: Kuramsal Temeller ve İleri Yaklaşımlar</em> (Ed. A. Özçift). Vizetek Yayıncılık. <a href="https://doi.org/10.54637/vizetek.9786253823245">doi:10.54637/vizetek.9786253823245</a></li>
-                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span>
-                            <strong>Genç S.</strong>, Çelikaslan Ş. G. (2026). Robotik Sistemler ve Otonom Araçlarda Bilgisayar Bilimleri Uygulamaları - Applications of Computer Science in Robotic Systems and Autonomous Vehicles. <em>Bilişim Sistemleri ve Bilgisayar Bilimlerinde Yapay Zekâ: Kuramsal Temeller ve İleri Yaklaşımlar</em> (Ed. A. Özçift). Vizetek Yayıncılık. <a href="https://doi.org/10.54637/vizetek.9786253823245">doi:10.54637/vizetek.9786253823245</a></li>
-                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2026). Sağlık ve Biyoinformatikte Yapay Zeka Uygulamaları - Applications of Artificial Intelligence in Healthcare and Bioinformatics. <em>Yapay Zekâ ve Veri Analitiğinde İstatistiksel Temeller ve Uygulamalar</em>. Vizetek Yayıncılık. <a href="https://doi.org/10.54637/vizetek.9786253822491">doi:10.54637/vizetek.9786253822491</a></li>
-                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2025). Machine Learning Models in Differential Diagnosis of Lung Diseases. <em>Health &amp; Science 2025-II</em> (Ed. H. E. Duran). Efe Akademi.</li>
-                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2025). Integrating Artificial Intelligence in Radiology Practice. <em>Health &amp; Science 2025-IV</em> (Ed. Ş. C. Yücetaş). Efe Akademi. ISBN: 978-625-392-797-4.</li>
-                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span>
-                            <strong>Genç S.</strong>, Ceylan M. F. (2025). The Role of Big Data in Pandemic Prediction and Management. <em>Health &amp; Science 2025-IV</em> (Ed. Ş. C. Yücetaş). Efe Akademi. ISBN: 978-625-392-797-4.</li>
-                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2025). Quantum Technologies: The Revolution Shaping the Future of Health and Science. <em>Health &amp; Science 2025-I</em> (Ed. H. Kafadar). Efe Akademi. ISBN: 978-625-392-498-0.</li>
-                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span>
-                            <strong>Genç S.</strong>, Gök M. (2024). Karar Ağacı Regresyon Yöntemi. <em>Makine Öğrenmesi Algoritmaları</em> (Ed. M. Gök). Nobel Yayınevi. ISBN: 978-625-371-882-4.</li>
-                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span>
-                            <strong>Genç S.</strong> (2024). Pekiştirmeli Öğrenme. <em>Makine Öğrenmesi Algoritmaları</em> (Ed. M. Gök). Nobel Yayınevi. ISBN: 978-625-371-882-4.</li>
+                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span><strong>Genç S.</strong> (2026). Sağlık Turizminde Kuantum Yapay Zeka ve Hesaplama Yaklaşımları: Teori, Uygulama ve Gelecek Öngörüleri. <em>Sağlık Turizminde Veri Bilimi ve Yapay Zeka</em> (Ed. G. Köse, U. Köse). Detay Yayıncılık. ISBN: 978-625-8822-26-7.</li>
+                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span><strong>Genç S.</strong> (2026). Sağlık Turizminde Veri Bilimi ve Makine Öğrenmesi: Regresyon, Sınıflandırma ve Kümeleme Ekseninde Gelecek Projeksiyonları. <em>Sağlık Turizminde Veri Bilimi ve Yapay Zeka</em> (Ed. G. Köse, U. Köse). Detay Yayıncılık. ISBN: 978-625-8822-26-7.</li>
+                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span><strong>Genç S.</strong> (2026). Machine Learning and Artificial Intelligence Applications in Parkinson's Disease: A Comprehensive Review of the Last Decade. <em>Health &amp; Science 2026-I</em> (Ed. H. Kafadar). Efe Akademi. ISBN: 978-625-392-859-9.</li>
+                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span><strong>Genç S.</strong>, Çelikaslan Ş. G. (2026). <a href="https://doi.org/10.54637/vizetek.9786253823245" target="_blank" rel="noopener">Artificial Intelligence Integration in the Internet of Things (IoT) and Intelligent Systems <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Bilişim Sistemleri ve Bilgisayar Bilimlerinde Yapay Zekâ: Kuramsal Temeller ve İleri Yaklaşımlar</em> (Ed. A. Özçift). Vizetek Yayıncılık.</li>
+                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span><strong>Genç S.</strong>, Çelikaslan Ş. G. (2026). <a href="https://doi.org/10.54637/vizetek.9786253823245" target="_blank" rel="noopener">Robotik Sistemler ve Otonom Araçlarda Bilgisayar Bilimleri Uygulamaları - Applications of Computer Science in Robotic Systems and Autonomous Vehicles <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Bilişim Sistemleri ve Bilgisayar Bilimlerinde Yapay Zekâ: Kuramsal Temeller ve İleri Yaklaşımlar</em> (Ed. A. Özçift). Vizetek Yayıncılık.</li>
+                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span><strong>Genç S.</strong> (2026). <a href="https://doi.org/10.54637/vizetek.9786253822491" target="_blank" rel="noopener">Sağlık ve Biyoinformatikte Yapay Zeka Uygulamaları - Applications of Artificial Intelligence in Healthcare and Bioinformatics <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Yapay Zekâ ve Veri Analitiğinde İstatistiksel Temeller ve Uygulamalar</em>. Vizetek Yayıncılık.</li>
+                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span><strong>Genç S.</strong> (2025). <a href="https://www.kitapyurdu.com/kitap/health-science-2025-ii/730456.html" target="_blank" rel="noopener">Machine Learning Models in Differential Diagnosis of Lung Diseases <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Health &amp; Science 2025-II</em> (Ed. H. E. Duran). Efe Akademi.</li>
+                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span><strong>Genç S.</strong> (2025). Integrating Artificial Intelligence in Radiology Practice. <em>Health &amp; Science 2025-IV</em> (Ed. Ş. C. Yücetaş). Efe Akademi. ISBN: 978-625-392-797-4.</li>
+                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span><strong>Genç S.</strong>, Ceylan M. F. (2025). The Role of Big Data in Pandemic Prediction and Management. <em>Health &amp; Science 2025-IV</em> (Ed. Ş. C. Yücetaş). Efe Akademi. ISBN: 978-625-392-797-4.</li>
+                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span><strong>Genç S.</strong> (2025). <a href="https://www.kitapyurdu.com/kitap/health-science-2025-1/723341.html" target="_blank" rel="noopener">Quantum Technologies: The Revolution Shaping the Future of Health and Science <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Health &amp; Science 2025-I</em> (Ed. H. Kafadar). Efe Akademi. ISBN: 978-625-392-498-0.</li>
+                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span><strong>Genç S.</strong>, Gök M. (2024). <a href="https://www.kitapyurdu.com/kitap/makine-ogrenmesi-algoritmalari/701691.html" target="_blank" rel="noopener">Karar Ağacı Regresyon Yöntemi <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Makine Öğrenmesi Algoritmaları</em> (Ed. M. Gök). Nobel Yayınevi. ISBN: 978-625-371-882-4.</li>
+                        <li><span class="fa-li"><i class="fas fa-bookmark" style="color:red"></i></span><strong>Genç S.</strong> (2024). <a href="https://www.kitapyurdu.com/kitap/makine-ogrenmesi-algoritmalari/701691.html" target="_blank" rel="noopener">Pekiştirmeli Öğrenme <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i></a>. <em>Makine Öğrenmesi Algoritmaları</em> (Ed. M. Gök). Nobel Yayınevi. ISBN: 978-625-371-882-4.</li>
                     </ul>
                 </div>
             </section>
@@ -364,44 +318,20 @@
             <!-- Projects-->
             <section class="resume-section" id="projects">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Projeler</h2>
+                    <h2 class="mb-5"><span class="l-tr">Projeler</span><span class="l-en" lang="en">Projects</span></h2>
                     <ul class="fa-ul mb-0 pub-list">
-                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#bd5d38"></i></span>
-                            <strong>Çok Değişkenli Sensör Verilerinde Klasik ve Kuantum Makine Öğrenmesi Yaklaşımlarının Arıza Kestirim Başarısı Üzerine Bir İnceleme</strong><br />
-                            Yükseköğretim Kurumları destekli bilimsel araştırma projesi · Yürütücü · <span class="meta">27/02/2026 -</span> <span class="status-ongoing">Devam ediyor</span></li>
-                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#bd5d38"></i></span>
-                            <strong>Balıkesir İlinde Diyabet Riskinin Makine Öğrenimi ve Kuantum Makine Öğrenimi Yöntemleri ile Tahmin Edilmesi</strong><br />
-                            Yükseköğretim Kurumları destekli bilimsel araştırma projesi · Yürütücü · <span class="meta">27/11/2025 -</span> <span class="status-ongoing">Devam ediyor</span></li>
-                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#bd5d38"></i></span>
-                            <strong>PanCanSee: Tıbbi Görüntülerden Pankreas Kanseri Tespiti için Yapay Zekâ Tabanlı Web Platformu Geliştirilmesi</strong><br />
-                            TÜBİTAK 2209 · Danışman · <span class="meta">13/05/2026 -</span> <span class="status-ongoing">Devam ediyor</span></li>
-                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#bd5d38"></i></span>
-                            <strong>Yapay Zeka Destekli Astronomi Asistanı: ZTF Veri Akışında Anomali Tespiti ve Doğal Dil ile Sorgulama</strong><br />
-                            TÜBİTAK 2209 · Danışman · <span class="meta">13/05/2026 -</span> <span class="status-ongoing">Devam ediyor</span></li>
-                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#bd5d38"></i></span>
-                            <strong>Bilim Söyleşileri Konuşmacı 2026</strong><br />
-                            TÜBİTAK Projesi · Eğitmen · <span class="meta">12/02/2026 -</span> <span class="status-ongoing">Devam ediyor</span></li>
-                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#bd5d38"></i></span>
-                            <strong>Balıkesir Milli Mücadele Dönemi'nin Sanal Gerçeklik Teknolojisi ile Canlandırılması</strong><br />
-                            TÜBİTAK 2209 · Danışman · <span class="meta">15/04/2025 - 15/01/2026</span></li>
-                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#bd5d38"></i></span>
-                            <strong>Skolyoz Hastaları için Özgün Bir Veri Seti ve Yapay Zeka Uygulamaları: YOLO ve CNN Modellerinin Karşılaştırılması</strong><br />
-                            TÜBİTAK 2209 · Danışman · <span class="meta">15/04/2025 - 15/01/2026</span></li>
-                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#bd5d38"></i></span>
-                            <strong>Yapay Zeka Destekli Meme Kanseri Tespiti: Mamografi Görüntülerinde YOLO Modeli Uygulaması</strong><br />
-                            TÜBİTAK 2209 · Danışman · <span class="meta">15/04/2025 - 15/01/2026</span></li>
-                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#bd5d38"></i></span>
-                            <strong>Yapay Zeka ile Ağ Trafiğinde Anomali Tespiti</strong><br />
-                            TÜBİTAK 2209 · Danışman · <span class="meta">15/04/2025 - 15/12/2025</span></li>
-                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#bd5d38"></i></span>
-                            <strong>Bilim Söyleşileri Konuşmacı 2025</strong><br />
-                            TÜBİTAK Projesi · Eğitmen · <span class="meta">30/04/2025 - 16/05/2025</span></li>
-                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#bd5d38"></i></span>
-                            <strong>Bilim Söyleşileri Konuşmacı 2023/2024</strong><br />
-                            TÜBİTAK Projesi · Eğitmen · <span class="meta">20/11/2022 - 23/10/2023</span></li>
-                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#bd5d38"></i></span>
-                            <strong>İlk Devrem İlk Programım İlk Robotum</strong><br />
-                            TÜBİTAK Projesi · Uzman · <span class="meta">01/08/2018 - 15/12/2018</span></li>
+                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#CC0000"></i></span><strong><span class="l-tr">Çok Değişkenli Sensör Verilerinde Klasik ve Kuantum Makine Öğrenmesi Yaklaşımlarının Arıza Kestirim Başarısı Üzerine Bir İnceleme</span><span class="l-en" lang="en">An Investigation of the Fault Prediction Performance of Classical and Quantum Machine Learning Approaches on Multivariate Sensor Data</span></strong><br /><span class="l-tr">Yükseköğretim Kurumları destekli bilimsel araştırma projesi</span><span class="l-en" lang="en">University-funded scientific research project (BAP)</span> · <span class="l-tr">Yürütücü</span><span class="l-en" lang="en">Principal Investigator</span> · <span class="meta">27/02/2026 -</span> <span class="status-ongoing"><span class="l-tr">Devam ediyor</span><span class="l-en" lang="en">Ongoing</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#CC0000"></i></span><strong><span class="l-tr">Balıkesir İlinde Diyabet Riskinin Makine Öğrenimi ve Kuantum Makine Öğrenimi Yöntemleri ile Tahmin Edilmesi</span><span class="l-en" lang="en">Predicting Diabetes Risk in Balıkesir Province with Machine Learning and Quantum Machine Learning Methods</span></strong><br /><span class="l-tr">Yükseköğretim Kurumları destekli bilimsel araştırma projesi</span><span class="l-en" lang="en">University-funded scientific research project (BAP)</span> · <span class="l-tr">Yürütücü</span><span class="l-en" lang="en">Principal Investigator</span> · <span class="meta">27/11/2025 -</span> <span class="status-ongoing"><span class="l-tr">Devam ediyor</span><span class="l-en" lang="en">Ongoing</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#CC0000"></i></span><strong><span class="l-tr">PanCanSee: Tıbbi Görüntülerden Pankreas Kanseri Tespiti için Yapay Zekâ Tabanlı Web Platformu Geliştirilmesi</span><span class="l-en" lang="en">PanCanSee: Developing an AI-Based Web Platform for Pancreatic Cancer Detection from Medical Images</span></strong><br />TÜBİTAK 2209 · <span class="l-tr">Danışman</span><span class="l-en" lang="en">Advisor</span> · <span class="meta">13/05/2026 -</span> <span class="status-ongoing"><span class="l-tr">Devam ediyor</span><span class="l-en" lang="en">Ongoing</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#CC0000"></i></span><strong><span class="l-tr">Yapay Zeka Destekli Astronomi Asistanı: ZTF Veri Akışında Anomali Tespiti ve Doğal Dil ile Sorgulama</span><span class="l-en" lang="en">AI-Powered Astronomy Assistant: Anomaly Detection in the ZTF Data Stream and Natural Language Querying</span></strong><br />TÜBİTAK 2209 · <span class="l-tr">Danışman</span><span class="l-en" lang="en">Advisor</span> · <span class="meta">13/05/2026 -</span> <span class="status-ongoing"><span class="l-tr">Devam ediyor</span><span class="l-en" lang="en">Ongoing</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#CC0000"></i></span><strong><span class="l-tr">Bilim Söyleşileri Konuşmacı 2026</span><span class="l-en" lang="en">Science Talks Speaker 2026</span></strong><br /><span class="l-tr">TÜBİTAK Projesi</span><span class="l-en" lang="en">TÜBİTAK Project</span> · <span class="l-tr">Eğitmen</span><span class="l-en" lang="en">Speaker</span> · <span class="meta">12/02/2026 -</span> <span class="status-ongoing"><span class="l-tr">Devam ediyor</span><span class="l-en" lang="en">Ongoing</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#CC0000"></i></span><strong><span class="l-tr">Balıkesir Milli Mücadele Dönemi'nin Sanal Gerçeklik Teknolojisi ile Canlandırılması</span><span class="l-en" lang="en">Recreating Balıkesir's National Struggle Period with Virtual Reality Technology</span></strong><br />TÜBİTAK 2209 · <span class="l-tr">Danışman</span><span class="l-en" lang="en">Advisor</span> · <span class="meta">15/04/2025 - 15/01/2026</span></li>
+                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#CC0000"></i></span><strong><span class="l-tr">Skolyoz Hastaları için Özgün Bir Veri Seti ve Yapay Zeka Uygulamaları: YOLO ve CNN Modellerinin Karşılaştırılması</span><span class="l-en" lang="en">An Original Dataset and AI Applications for Scoliosis Patients: Comparing YOLO and CNN Models</span></strong><br />TÜBİTAK 2209 · <span class="l-tr">Danışman</span><span class="l-en" lang="en">Advisor</span> · <span class="meta">15/04/2025 - 15/01/2026</span></li>
+                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#CC0000"></i></span><strong><span class="l-tr">Yapay Zeka Destekli Meme Kanseri Tespiti: Mamografi Görüntülerinde YOLO Modeli Uygulaması</span><span class="l-en" lang="en">AI-Assisted Breast Cancer Detection: Applying the YOLO Model to Mammography Images</span></strong><br />TÜBİTAK 2209 · <span class="l-tr">Danışman</span><span class="l-en" lang="en">Advisor</span> · <span class="meta">15/04/2025 - 15/01/2026</span></li>
+                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#CC0000"></i></span><strong><span class="l-tr">Yapay Zeka ile Ağ Trafiğinde Anomali Tespiti</span><span class="l-en" lang="en">Anomaly Detection in Network Traffic with Artificial Intelligence</span></strong><br />TÜBİTAK 2209 · <span class="l-tr">Danışman</span><span class="l-en" lang="en">Advisor</span> · <span class="meta">15/04/2025 - 15/12/2025</span></li>
+                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#CC0000"></i></span><strong><span class="l-tr">Bilim Söyleşileri Konuşmacı 2025</span><span class="l-en" lang="en">Science Talks Speaker 2025</span></strong><br /><span class="l-tr">TÜBİTAK Projesi</span><span class="l-en" lang="en">TÜBİTAK Project</span> · <span class="l-tr">Eğitmen</span><span class="l-en" lang="en">Speaker</span> · <span class="meta">30/04/2025 - 16/05/2025</span></li>
+                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#CC0000"></i></span><strong><span class="l-tr">Bilim Söyleşileri Konuşmacı 2023/2024</span><span class="l-en" lang="en">Science Talks Speaker 2023/2024</span></strong><br /><span class="l-tr">TÜBİTAK Projesi</span><span class="l-en" lang="en">TÜBİTAK Project</span> · <span class="l-tr">Eğitmen</span><span class="l-en" lang="en">Speaker</span> · <span class="meta">20/11/2022 - 23/10/2023</span></li>
+                        <li><span class="fa-li"><i class="fas fa-flask" style="color:#CC0000"></i></span><strong><span class="l-tr">İlk Devrem İlk Programım İlk Robotum</span><span class="l-en" lang="en">My First Circuit, My First Program, My First Robot</span></strong><br /><span class="l-tr">TÜBİTAK Projesi</span><span class="l-en" lang="en">TÜBİTAK Project</span> · <span class="l-tr">Uzman</span><span class="l-en" lang="en">Expert</span> · <span class="meta">01/08/2018 - 15/12/2018</span></li>
                     </ul>
                 </div>
             </section>
@@ -410,22 +340,13 @@
             <!-- Talks-->
             <section class="resume-section" id="talks">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Söyleşiler</h2>
-                    <p class="mb-4">TÜBİTAK Bilim Söyleşileri programı kapsamında 2022'den bu yana okullarda öğrencilerle yapay zekâ ve kuantum teknolojileri üzerine söyleşiler gerçekleştiriyorum.</p>
+                    <h2 class="mb-5"><span class="l-tr">Söyleşiler</span><span class="l-en" lang="en">Talks</span></h2>
+                    <p class="mb-4"><span class="l-tr">TÜBİTAK Bilim Söyleşileri programı kapsamında 2022'den bu yana okullarda öğrencilerle yapay zekâ ve kuantum teknolojileri üzerine söyleşiler gerçekleştiriyorum.</span><span class="l-en" lang="en">Since 2022, I have been giving talks to school students on artificial intelligence and quantum technologies as part of the TÜBİTAK Science Talks program.</span></p>
                     <ul class="fa-ul mb-0 pub-list">
-                        <li><span class="fa-li"><i class="fas fa-comments" style="color:#bd5d38"></i></span>
-                            <strong>Bilimin Geleceği: Yapay Zekâ, Kuantum Teknolojileri ve Metaverse'in Birlikte Yükselişi</strong><br />
-                            TÜBİTAK Bilim Söyleşileri · Yalova Güzel Sanatlar Lisesi <span class="meta">(17 Mayıs 2026)</span> ·
-                            <a href="https://www.yalovahayat.com/yasam/yalova-guzel-sanatlar-lisesi-nde-bilim-ve-sanat-bulustu-134675" target="_blank" rel="noopener">Habere git <i class="fas fa-external-link-alt fa-xs"></i></a></li>
-                        <li><span class="fa-li"><i class="fas fa-comments" style="color:#bd5d38"></i></span>
-                            <strong>TÜBİTAK Bilim Söyleşileri 2026</strong> (Proje No: 910451)<br />
-                            Konuşmacı · <span class="meta">12 Şubat 2026'dan bu yana</span> <span class="status-ongoing">Devam ediyor</span></li>
-                        <li><span class="fa-li"><i class="fas fa-comments" style="color:#bd5d38"></i></span>
-                            <strong>TÜBİTAK Bilim Söyleşileri 2025</strong> (Proje No: 827308)<br />
-                            Konuşmacı · <span class="meta">30 Nisan - 16 Mayıs 2025</span></li>
-                        <li><span class="fa-li"><i class="fas fa-comments" style="color:#bd5d38"></i></span>
-                            <strong>TÜBİTAK Bilim Söyleşileri 2023/2024</strong> (Proje No: 691045)<br />
-                            Konuşmacı · <span class="meta">20 Kasım 2022 - 23 Ekim 2023</span></li>
+                        <li><span class="fa-li"><i class="fas fa-comments" style="color:#CC0000"></i></span><strong><span class="l-tr">Bilimin Geleceği: Yapay Zekâ, Kuantum Teknolojileri ve Metaverse&#39;in Birlikte Yükselişi</span><span class="l-en" lang="en">The Future of Science: The Joint Rise of Artificial Intelligence, Quantum Technologies and the Metaverse</span></strong><br /><span class="l-tr">TÜBİTAK Bilim Söyleşileri · Yalova Güzel Sanatlar Lisesi</span><span class="l-en" lang="en">TÜBİTAK Science Talks · Yalova Fine Arts High School</span> <span class="meta">(<span class="l-tr">17 Mayıs 2026</span><span class="l-en" lang="en">17 May 2026</span>)</span> · <a href="https://www.yalovahayat.com/yasam/yalova-guzel-sanatlar-lisesi-nde-bilim-ve-sanat-bulustu-134675" target="_blank" rel="noopener"><span class="l-tr">Habere git</span><span class="l-en" lang="en">Read the news</span> <i class="fas fa-external-link-alt fa-xs"></i></a></li>
+                        <li><span class="fa-li"><i class="fas fa-comments" style="color:#CC0000"></i></span><strong><span class="l-tr">TÜBİTAK Bilim Söyleşileri 2026</span><span class="l-en" lang="en">TÜBİTAK Science Talks 2026</span></strong> (<span class="l-tr">Proje No</span><span class="l-en" lang="en">Project No</span>: 910451)<br /><span class="l-tr">Konuşmacı</span><span class="l-en" lang="en">Speaker</span> · <span class="meta"><span class="l-tr">12 Şubat 2026&#39;dan bu yana</span><span class="l-en" lang="en">Since 12 February 2026</span></span> <span class="status-ongoing"><span class="l-tr">Devam ediyor</span><span class="l-en" lang="en">Ongoing</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-comments" style="color:#CC0000"></i></span><strong><span class="l-tr">TÜBİTAK Bilim Söyleşileri 2025</span><span class="l-en" lang="en">TÜBİTAK Science Talks 2025</span></strong> (<span class="l-tr">Proje No</span><span class="l-en" lang="en">Project No</span>: 827308)<br /><span class="l-tr">Konuşmacı</span><span class="l-en" lang="en">Speaker</span> · <span class="meta"><span class="l-tr">30 Nisan - 16 Mayıs 2025</span><span class="l-en" lang="en">30 April - 16 May 2025</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-comments" style="color:#CC0000"></i></span><strong><span class="l-tr">TÜBİTAK Bilim Söyleşileri 2023/2024</span><span class="l-en" lang="en">TÜBİTAK Science Talks 2023/2024</span></strong> (<span class="l-tr">Proje No</span><span class="l-en" lang="en">Project No</span>: 691045)<br /><span class="l-tr">Konuşmacı</span><span class="l-en" lang="en">Speaker</span> · <span class="meta"><span class="l-tr">20 Kasım 2022 - 23 Ekim 2023</span><span class="l-en" lang="en">20 November 2022 - 23 October 2023</span></span></li>
                     </ul>
                 </div>
             </section>
@@ -434,18 +355,12 @@
             <!-- Theses-->
             <section class="resume-section" id="theses">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Yönetilen Tezler</h2>
-                    <div class="subheading mb-3">Yüksek Lisans</div>
+                    <h2 class="mb-5"><span class="l-tr">Yönetilen Tezler</span><span class="l-en" lang="en">Supervised Theses</span></h2>
+                    <div class="subheading mb-3"><span class="l-tr">Yüksek Lisans</span><span class="l-en" lang="en">Master's</span></div>
                     <ul class="fa-ul mb-0 pub-list">
-                        <li><span class="fa-li"><i class="fas fa-user-graduate" style="color:#bd5d38"></i></span>
-                            <strong>Şirin Gülten Çelikaslan</strong> · Çok Değişkenli Sensör Verilerinde Klasik ve Kuantum Makine Öğrenmesi Yaklaşımlarının Arıza Kestirim Başarısı Üzerine Bir İnceleme<br />
-                            <span class="meta">Balıkesir Üniversitesi, Fen Bilimleri Enstitüsü, Bilgisayar ve Bilişim Mühendisliği ABD</span> <span class="status-ongoing">Devam ediyor</span></li>
-                        <li><span class="fa-li"><i class="fas fa-user-graduate" style="color:#bd5d38"></i></span>
-                            <strong>Hüseyin Şahin</strong> · Kuantum Makine Öğrenmesinin Yenilenebilir Enerji Güç Tahmininde Uygulanabilirliğinin Değerlendirilmesi: FPV Sistemleri Üzerine Bir İnceleme<br />
-                            <span class="meta">Balıkesir Üniversitesi, Fen Bilimleri Enstitüsü, Bilgisayar ve Bilişim Mühendisliği ABD (Disiplinlerarası)</span> <span class="status-ongoing">Devam ediyor</span></li>
-                        <li><span class="fa-li"><i class="fas fa-user-graduate" style="color:#bd5d38"></i></span>
-                            <strong>Öykü Biçkici</strong> · Makine Öğrenmesi Algoritmaları Kullanılarak Kişiselleştirilmiş Yemek Tarifi Öneri Sisteminin Geliştirilmesi<br />
-                            <span class="meta">Balıkesir Üniversitesi, Fen Bilimleri Enstitüsü, Bilgisayar ve Bilişim Mühendisliği ABD (Disiplinlerarası)</span> <span class="status-ongoing">Devam ediyor</span></li>
+                        <li><span class="fa-li"><i class="fas fa-user-graduate" style="color:#CC0000"></i></span><strong>Şirin Gülten Çelikaslan</strong> · <span class="l-tr">Çok Değişkenli Sensör Verilerinde Klasik ve Kuantum Makine Öğrenmesi Yaklaşımlarının Arıza Kestirim Başarısı Üzerine Bir İnceleme</span><span class="l-en" lang="en">An Investigation of the Fault Prediction Performance of Classical and Quantum Machine Learning Approaches on Multivariate Sensor Data</span><br /><span class="meta"><span class="l-tr">Balıkesir Üniversitesi, Fen Bilimleri Enstitüsü, Bilgisayar ve Bilişim Mühendisliği ABD</span><span class="l-en" lang="en">Balıkesir University, Graduate School of Natural and Applied Sciences, Computer and Informatics Engineering</span></span> <span class="status-ongoing"><span class="l-tr">Devam ediyor</span><span class="l-en" lang="en">Ongoing</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-user-graduate" style="color:#CC0000"></i></span><strong>Hüseyin Şahin</strong> · <span class="l-tr">Kuantum Makine Öğrenmesinin Yenilenebilir Enerji Güç Tahmininde Uygulanabilirliğinin Değerlendirilmesi: FPV Sistemleri Üzerine Bir İnceleme</span><span class="l-en" lang="en">Evaluating the Applicability of Quantum Machine Learning in Renewable Energy Power Forecasting: A Study on FPV Systems</span><br /><span class="meta"><span class="l-tr">Balıkesir Üniversitesi, Fen Bilimleri Enstitüsü, Bilgisayar ve Bilişim Mühendisliği ABD (Disiplinlerarası)</span><span class="l-en" lang="en">Balıkesir University, Graduate School of Natural and Applied Sciences, Computer and Informatics Engineering (Interdisciplinary)</span></span> <span class="status-ongoing"><span class="l-tr">Devam ediyor</span><span class="l-en" lang="en">Ongoing</span></span></li>
+                        <li><span class="fa-li"><i class="fas fa-user-graduate" style="color:#CC0000"></i></span><strong>Öykü Biçkici</strong> · <span class="l-tr">Makine Öğrenmesi Algoritmaları Kullanılarak Kişiselleştirilmiş Yemek Tarifi Öneri Sisteminin Geliştirilmesi</span><span class="l-en" lang="en">Developing a Personalized Recipe Recommendation System Using Machine Learning Algorithms</span><br /><span class="meta"><span class="l-tr">Balıkesir Üniversitesi, Fen Bilimleri Enstitüsü, Bilgisayar ve Bilişim Mühendisliği ABD (Disiplinlerarası)</span><span class="l-en" lang="en">Balıkesir University, Graduate School of Natural and Applied Sciences, Computer and Informatics Engineering (Interdisciplinary)</span></span> <span class="status-ongoing"><span class="l-tr">Devam ediyor</span><span class="l-en" lang="en">Ongoing</span></span></li>
                     </ul>
                 </div>
             </section>
@@ -454,50 +369,54 @@
             <!-- Courses-->
             <section class="resume-section" id="courses">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Verdiği Dersler</h2>
-
+                    <h2 class="mb-5"><span class="l-tr">Verdiği Dersler</span><span class="l-en" lang="en">Courses Taught</span></h2>
                     <details class="course-year" open>
+                        <summary>2026-2027</summary>
+                        <p class="mb-1"><strong><span class="l-tr">Lisans</span><span class="l-en" lang="en">Undergraduate</span>:</strong> <span class="l-tr">Biyoinformatiğe Giriş (Güz), Yapay Zeka Temelleri (Güz), Veritabanı Yönetim Sistemleri (A ve B şubeleri) (Güz), Bilgisayar Mühendisliği Tasarımı (Güz)</span><span class="l-en" lang="en">Introduction to Bioinformatics (Fall), Fundamentals of Artificial Intelligence (Fall), Database Management Systems (Sections A and B) (Fall), Computer Engineering Design (Fall)</span></p>
+                        <p class="mb-1"><strong><span class="l-tr">Yüksek Lisans</span><span class="l-en" lang="en">Graduate</span>:</strong> <span class="l-tr">Kuantum Hesaplama ve Uygulamaları (Güz)</span><span class="l-en" lang="en">Quantum Computing and Applications (Fall)</span></p>
+                    </details>
+                    <details class="course-year">
                         <summary>2025-2026</summary>
-                        <p class="mb-1"><strong>Lisans:</strong> Bilgisayar Mühendisliği Tasarımı (Güz), Biyoinformatiğe Giriş (Güz), Veritabanı Yönetim Sistemleri (Güz), Görsel Programlama (Bahar), Bitirme Projesi (Bahar), Yazılım Mühendisliği (Bahar), İşletmede Mesleki Eğitim (Bahar)</p>
-                        <p><strong>Yüksek Lisans:</strong> Kuantum Hesaplama ve Uygulamaları (Güz), Uygulamalı Makine Öğrenmesi (Bahar)</p>
+                        <p class="mb-1"><strong><span class="l-tr">Lisans</span><span class="l-en" lang="en">Undergraduate</span>:</strong> <span class="l-tr">Bilgisayar Mühendisliği Tasarımı (Güz), Biyoinformatiğe Giriş (Güz), Veritabanı Yönetim Sistemleri (Güz), Görsel Programlama (Bahar), Bitirme Projesi (Bahar), Yazılım Mühendisliği (Bahar), İşletmede Mesleki Eğitim (Bahar)</span><span class="l-en" lang="en">Computer Engineering Design (Fall), Introduction to Bioinformatics (Fall), Database Management Systems (Fall), Visual Programming (Spring), Senior Design Project (Spring), Software Engineering (Spring), Workplace Vocational Training (Spring)</span></p>
+                        <p class="mb-1"><strong><span class="l-tr">Yüksek Lisans</span><span class="l-en" lang="en">Graduate</span>:</strong> <span class="l-tr">Kuantum Hesaplama ve Uygulamaları (Güz), Uygulamalı Makine Öğrenmesi (Bahar)</span><span class="l-en" lang="en">Quantum Computing and Applications (Fall), Applied Machine Learning (Spring)</span></p>
                     </details>
                     <details class="course-year">
                         <summary>2024-2025</summary>
-                        <p class="mb-1"><strong>Lisans:</strong> Veritabanı Yönetim Sistemleri (Güz), Programlama Lab I (Güz), Nesneye Yönelik Programlama (Güz), Bilgisayar Mühendisliği Tasarımı (Güz), Biyoinformatiğe Giriş (Güz), Görsel Programlama A ve B (Bahar), Yazılım Mühendisliği (Bahar), Bitirme Projesi (Bahar)</p>
-                        <p><strong>Yüksek Lisans:</strong> Uygulamalı Makine Öğrenmesi (Bahar)</p>
+                        <p class="mb-1"><strong><span class="l-tr">Lisans</span><span class="l-en" lang="en">Undergraduate</span>:</strong> <span class="l-tr">Veritabanı Yönetim Sistemleri (Güz), Programlama Lab I (Güz), Nesneye Yönelik Programlama (Güz), Bilgisayar Mühendisliği Tasarımı (Güz), Biyoinformatiğe Giriş (Güz), Görsel Programlama (A ve B şubeleri) (Bahar), Yazılım Mühendisliği (Bahar), Bitirme Projesi (Bahar)</span><span class="l-en" lang="en">Database Management Systems (Fall), Programming Lab I (Fall), Object-Oriented Programming (Fall), Computer Engineering Design (Fall), Introduction to Bioinformatics (Fall), Visual Programming (Sections A and B) (Spring), Software Engineering (Spring), Senior Design Project (Spring)</span></p>
+                        <p class="mb-1"><strong><span class="l-tr">Yüksek Lisans</span><span class="l-en" lang="en">Graduate</span>:</strong> <span class="l-tr">Uygulamalı Makine Öğrenmesi (Bahar)</span><span class="l-en" lang="en">Applied Machine Learning (Spring)</span></p>
                     </details>
                     <details class="course-year">
                         <summary>2023-2024</summary>
-                        <p><strong>Önlisans:</strong> Nesne Tabanlı Programlama I ve II, Programlama Temelleri, Oyun Programlama, Veri Tabanı I ve II, Veri Tabanı ve Yönetimi, Yazılım Kalite ve Test Teknikleri, Yazılım Mimarileri, Araştırma Yöntem ve Teknikleri, Mobil Programlama, Bilişim Hukuku</p>
+                        <p class="mb-1"><strong><span class="l-tr">Önlisans</span><span class="l-en" lang="en">Associate Degree</span>:</strong> <span class="l-tr">Nesne Tabanlı Programlama I ve II, Programlama Temelleri, Oyun Programlama, Veri Tabanı I ve II, Veri Tabanı ve Yönetimi, Yazılım Kalite ve Test Teknikleri, Yazılım Mimarileri, Araştırma Yöntem ve Teknikleri, Mobil Programlama, Bilişim Hukuku</span><span class="l-en" lang="en">Object-Based Programming I and II, Fundamentals of Programming, Game Programming, Database I and II, Database and Management, Software Quality and Testing Techniques, Software Architectures, Research Methods and Techniques, Mobile Programming, IT Law</span></p>
                     </details>
                     <details class="course-year">
                         <summary>2022-2023</summary>
-                        <p class="mb-1"><strong>Önlisans:</strong> Mobil Programlama, Veri Tabanı I ve II, Araştırma Yöntem ve Teknikleri, Ofis Yazılımları (A ve B grupları), Staj, Yazılım Kalite Test ve Teknikleri</p>
-                        <p><strong>Lisans:</strong> Yapay Sinir Ağları (Elektrik-Elektronik Mühendisliği ve Bilgisayar Mühendisliği)</p>
+                        <p class="mb-1"><strong><span class="l-tr">Önlisans</span><span class="l-en" lang="en">Associate Degree</span>:</strong> <span class="l-tr">Mobil Programlama, Veri Tabanı I ve II, Araştırma Yöntem ve Teknikleri, Ofis Yazılımları (A ve B grupları), Staj, Yazılım Kalite ve Test Teknikleri</span><span class="l-en" lang="en">Mobile Programming, Database I and II, Research Methods and Techniques, Office Software (Groups A and B), Internship, Software Quality and Testing Techniques</span></p>
+                        <p class="mb-1"><strong><span class="l-tr">Lisans</span><span class="l-en" lang="en">Undergraduate</span>:</strong> <span class="l-tr">Yapay Sinir Ağları (Elektrik-Elektronik Müh. ve Bilgisayar Müh.)</span><span class="l-en" lang="en">Artificial Neural Networks (Electrical-Electronics Eng. and Computer Eng.)</span></p>
                     </details>
                     <details class="course-year">
                         <summary>2021-2022</summary>
-                        <p><strong>Önlisans:</strong> Veri Tabanı ve Yönetimi, Araştırma Yöntem ve Teknikleri, Nesne Tabanlı Programlama I ve II, Temel Bilgi Teknolojileri I, Ofis Yazılımları, Veri Tabanı I ve II, Grafik Animasyon, Mobil Programlama, Yazılım Kalite ve Test Teknikleri</p>
+                        <p class="mb-1"><strong><span class="l-tr">Önlisans</span><span class="l-en" lang="en">Associate Degree</span>:</strong> <span class="l-tr">Veri Tabanı ve Yönetimi, Araştırma Yöntem ve Teknikleri, Nesne Tabanlı Programlama I ve II, Temel Bilgi Teknolojileri I, Ofis Yazılımları, Veri Tabanı I ve II, Grafik Animasyon, Mobil Programlama, Yazılım Kalite ve Test Teknikleri</span><span class="l-en" lang="en">Database and Management, Research Methods and Techniques, Object-Based Programming I and II, Basic Information Technologies I, Office Software, Database I and II, Graphics and Animation, Mobile Programming, Software Quality and Testing Techniques</span></p>
                     </details>
                     <details class="course-year">
                         <summary>2020-2021</summary>
-                        <p><strong>Önlisans:</strong> Meslek Etiği, Veri Tabanı I, Ofis Yazılımları, Görsel Programlama II, Nesne Tabanlı Programlama II, Mobil Programlama, Araştırma Yöntem ve Teknikleri, Veri Tabanı ve Yönetimi</p>
+                        <p class="mb-1"><strong><span class="l-tr">Önlisans</span><span class="l-en" lang="en">Associate Degree</span>:</strong> <span class="l-tr">Meslek Etiği, Veri Tabanı I, Ofis Yazılımları, Görsel Programlama II, Nesne Tabanlı Programlama II, Mobil Programlama, Araştırma Yöntem ve Teknikleri, Veri Tabanı ve Yönetimi</span><span class="l-en" lang="en">Professional Ethics, Database I, Office Software, Visual Programming II, Object-Based Programming II, Mobile Programming, Research Methods and Techniques, Database and Management</span></p>
                     </details>
                     <details class="course-year">
                         <summary>2019-2020</summary>
-                        <p><strong>Önlisans:</strong> Görsel Programlama II ve III, Programlama Temelleri, Ofis Yazılımları, Veri Tabanı I ve II, Veri Tabanı ve Yönetimi, Araştırma Yöntem ve Teknikleri, Nesne Tabanlı Programlama II</p>
+                        <p class="mb-1"><strong><span class="l-tr">Önlisans</span><span class="l-en" lang="en">Associate Degree</span>:</strong> <span class="l-tr">Görsel Programlama II ve III, Programlama Temelleri, Ofis Yazılımları, Veri Tabanı I ve II, Veri Tabanı ve Yönetimi, Araştırma Yöntem ve Teknikleri, Nesne Tabanlı Programlama II</span><span class="l-en" lang="en">Visual Programming II and III, Fundamentals of Programming, Office Software, Database I and II, Database and Management, Research Methods and Techniques, Object-Based Programming II</span></p>
                     </details>
                     <details class="course-year">
                         <summary>2018-2019</summary>
-                        <p><strong>Önlisans:</strong> Veri Tabanı I ve II, Nesne Tabanlı Programlama I ve II, Bilgi İletişim Teknolojileri, İnternet Programcılığı I ve II, Web Tasarım Temelleri, Temel Bilgi Teknolojileri, Veri Tabanı ve Yönetimi, Meslek Etiği</p>
+                        <p class="mb-1"><strong><span class="l-tr">Önlisans</span><span class="l-en" lang="en">Associate Degree</span>:</strong> <span class="l-tr">Veri Tabanı I ve II, Nesne Tabanlı Programlama I ve II, Bilgi İletişim Teknolojileri, İnternet Programcılığı I ve II, Web Tasarım Temelleri, Temel Bilgi Teknolojileri, Veri Tabanı ve Yönetimi, Meslek Etiği</span><span class="l-en" lang="en">Database I and II, Object-Based Programming I and II, Information and Communication Technologies, Internet Programming I and II, Web Design Fundamentals, Basic Information Technologies, Database and Management, Professional Ethics</span></p>
                     </details>
                     <details class="course-year">
                         <summary>2017-2018</summary>
-                        <p><strong>Önlisans:</strong> Nesne Tabanlı Programlama I ve II, Veri Tabanı I ve II, İnternet Programcılığı I ve II, Bilgisayarda Dizgi-Tasarım, Yazılım Kurulum ve Yönetimi, Temel Bilgi Teknolojileri, Görsel Programlama II ve III, Bilgisayar Donanımı</p>
+                        <p class="mb-1"><strong><span class="l-tr">Önlisans</span><span class="l-en" lang="en">Associate Degree</span>:</strong> <span class="l-tr">Nesne Tabanlı Programlama I ve II, Veri Tabanı I ve II, İnternet Programcılığı I ve II, Bilgisayarda Dizgi-Tasarım, Yazılım Kurulum ve Yönetimi, Temel Bilgi Teknolojileri, Görsel Programlama II ve III, Bilgisayar Donanımı</span><span class="l-en" lang="en">Object-Based Programming I and II, Database I and II, Internet Programming I and II, Desktop Publishing and Design, Software Installation and Management, Basic Information Technologies, Visual Programming II and III, Computer Hardware</span></p>
                     </details>
                     <details class="course-year">
                         <summary>2016-2017</summary>
-                        <p><strong>Önlisans:</strong> Bilgisayar Donanımı, Araştırma Yöntem ve Teknikleri, Yazılım Kurulumu ve Yönetimi, Sistem Analizi ve Tasarımı, Grafik Animasyon II</p>
+                        <p class="mb-1"><strong><span class="l-tr">Önlisans</span><span class="l-en" lang="en">Associate Degree</span>:</strong> <span class="l-tr">Bilgisayar Donanımı, Araştırma Yöntem ve Teknikleri, Yazılım Kurulum ve Yönetimi, Sistem Analizi ve Tasarımı, Grafik Animasyon II</span><span class="l-en" lang="en">Computer Hardware, Research Methods and Techniques, Software Installation and Management, Systems Analysis and Design, Graphics and Animation II</span></p>
                     </details>
                 </div>
             </section>
@@ -506,12 +425,12 @@
             <!-- Editorship-->
             <section class="resume-section" id="editorship">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Editörlük</h2>
+                    <h2 class="mb-5"><span class="l-tr">Editörlük</span><span class="l-en" lang="en">Editorship</span></h2>
                     <ul class="fa-ul mb-0">
                         <li><span class="fa-li"><i class="fas fa-pen-nib text-warning"></i></span>
-                            <strong>Romaya Journal</strong> (Scopus) · Editör · DergiPark <span class="meta">(15.01.2026 - )</span></li>
+                            <strong>Romaya Journal</strong> (Scopus) · <span class="l-tr">Editör</span><span class="l-en" lang="en">Editor</span> · DergiPark <span class="meta">(15.01.2026 - )</span></li>
                         <li><span class="fa-li"><i class="fas fa-pen-nib text-warning"></i></span>
-                            <strong>KTEAD - Kuantum Teknolojileri ve Enformatik Araştırmaları Dergisi</strong> · Editör · Holistence Academy <span class="meta">(28.11.2024 - )</span></li>
+                            <strong><span class="l-tr">KTEAD - Kuantum Teknolojileri ve Enformatik Araştırmaları Dergisi</span><span class="l-en" lang="en">KTEAD - Journal of Quantum Technologies and Informatics Research</span></strong> · <span class="l-tr">Editör</span><span class="l-en" lang="en">Editor</span> · Holistence Academy <span class="meta">(28.11.2024 - )</span></li>
                     </ul>
                 </div>
             </section>
@@ -525,5 +444,31 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+            // Dil değiştirici / Language toggle
+            (function () {
+                var buttons = document.querySelectorAll(".lang-switch button");
+                function apply(lang) {
+                    document.documentElement.lang = lang;
+                    for (var i = 0; i < buttons.length; i++) {
+                        buttons[i].setAttribute("aria-pressed", buttons[i].getAttribute("data-lang") === lang ? "true" : "false");
+                    }
+                    document.title = "Sevdanur GENÇ";
+                }
+                for (var i = 0; i < buttons.length; i++) {
+                    buttons[i].addEventListener("click", function () {
+                        var lang = this.getAttribute("data-lang");
+                        apply(lang);
+                        try { localStorage.setItem("site-lang", lang); } catch (e) {}
+                        try {
+                            var u = new URL(location.href);
+                            u.searchParams.set("lang", lang);
+                            history.replaceState(null, "", u.toString());
+                        } catch (e) {}
+                    });
+                }
+                apply(document.documentElement.lang === "en" ? "en" : "tr");
+            })();
+        </script>
     </body>
 </html>
